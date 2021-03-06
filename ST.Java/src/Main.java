@@ -1,13 +1,9 @@
-import first.main.TaskMain;
-
-
-
 public class Main {
 
     public static void main(String[] args) {
 
-        TaskMain.main(args);
-
+//        first.main.TaskMain.main(args);
+        fifth.main.TaskMain.main(args);
     }
 
 }
