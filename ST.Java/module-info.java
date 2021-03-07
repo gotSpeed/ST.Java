@@ -5,5 +5,6 @@ module ST.Java {
     requires FourthTask;
     requires FifthTask;
     requires SixthTask;
+    requires SeventhTask;
 
 }
