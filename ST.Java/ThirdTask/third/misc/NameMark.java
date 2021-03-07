@@ -1,4 +1,4 @@
-package third;
+package third.misc;
 
 
 public class NameMark {

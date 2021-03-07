@@ -1,7 +1,7 @@
 package third.manager;
 
 
-import third.NameMark;
+import third.misc.NameMark;
 
 import java.util.*;
 
@@ -15,7 +15,7 @@ public class MarksManager {
 
 
 
-    private MarksManager() {}
+    protected MarksManager() {}
 
 
 
