@@ -8,10 +8,5 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="FirstTask" />
-    <orderEntry type="module" module-name="FifthTask" />
-    <orderEntry type="module" module-name="ThirdTask" />
-    <orderEntry type="module" module-name="FourthTask" />
-    <orderEntry type="module" module-name="SixthTask" />
   </component>
 </module>
