@@ -9,7 +9,8 @@ public class Main {
 //        sixth.main.TaskMain.main(args);
 //        seventh.main.TaskMain.main(args);
 //        eighth.main.TaskMain.main(args);
-        ninth.main.TaskMain.main(args);
+//        ninth.main.TaskMain.main(args);
+        tenth.main.TaskMain.main(args);
     }
 
 

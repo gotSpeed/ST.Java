@@ -8,5 +8,6 @@ module ST.Java {
     requires SeventhTask;
     requires EighthTask;
     requires NinthTask;
+    requires TenthTask;
 
 }
