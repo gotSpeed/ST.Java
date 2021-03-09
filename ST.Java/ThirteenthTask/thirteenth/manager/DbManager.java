@@ -15,16 +15,12 @@ import java.util.Locale;
 
 public class DbManager {
 
-    private static final String DUMMY_DB_URL     =
+    protected static final String DUMMY_DB_URL     =
         "jdbc:postgresql://localhost:5445/st_java";
-    private static final String DUMMY_USER       = "STJava";
-    private static final String DEFAULT_PASSWORD = "postgres";
+    protected static final String DUMMY_USER       = "STJava";
+    protected static final String DEFAULT_PASSWORD = "postgres";
 
-    private Connection mConnection;
-
-
-
-    public DbManager() {}
+    protected Connection mConnection;
 
 
 
