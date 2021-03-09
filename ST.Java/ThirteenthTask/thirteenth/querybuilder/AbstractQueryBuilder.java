@@ -23,7 +23,7 @@ public abstract class AbstractQueryBuilder {
 
 
 
-    public AbstractQueryBuilder setParams(String... params) {
+    public AbstractQueryBuilder setParams(String[] params) {
 
         StringBuilder builder = new StringBuilder(16);
 
@@ -41,7 +41,7 @@ public abstract class AbstractQueryBuilder {
 
 
 
-    public abstract AbstractQueryBuilder setArgs(Object... args);
+    public abstract AbstractQueryBuilder setArgs(Object[] args);
 
     public abstract AbstractQueryBuilder addFilter(String column,
                                                    String condition,

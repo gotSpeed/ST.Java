@@ -5,7 +5,13 @@
       <list>
         <option value="$PROJECT_DIR$/ThirteenthTask/pom.xml" />
         <option value="$PROJECT_DIR$/FourteenthTask/pom.xml" />
+        <option value="$PROJECT_DIR$/FifteenthTask/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/FourteenthTask/FifteenthTask/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="15" project-jdk-type="JavaSDK">

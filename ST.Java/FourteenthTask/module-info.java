@@ -5,5 +5,6 @@ module FourteenthTask {
 
     exports fourteenth.main;
     exports fourteenth.manager;
+    exports fourteenth.commands;
 
 }

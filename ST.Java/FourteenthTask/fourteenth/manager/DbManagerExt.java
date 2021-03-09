@@ -13,12 +13,12 @@ import java.util.*;
 
 public class DbManagerExt extends DbManager {
 
-    private static final String OPT_ARG   = "-a";
-    private static final String OPT_TABLE = "-t";
+    protected static final String OPT_ARG   = "-a";
+    protected static final String OPT_TABLE = "-t";
 
-    private String   mTable;
-    private String[] mLastQueryParams;
-    private Object[] mLastQueryArgs;
+    protected String   mTable;
+    protected String[] mLastQueryParams;
+    protected Object[] mLastQueryArgs;
 
 
 
@@ -97,7 +97,34 @@ public class DbManagerExt extends DbManager {
 
 
 
-    private void parseArgs(String[] args, Map<String, Object> pairs) {
+    public void selectAllExpensesAndPrint(String table) {
+
+        try {
+            ResultSet resultSet =
+                mConnection.createStatement()
+                           .executeQuery(String.format("SELECT * FROM %s", table));
+
+            while (resultSet.next()) {
+                String output = String.format(
+                    "\nId: %d\nSender: %s\nReceiver: %s\nDate: %s\nAmount: %d\n",
+                    resultSet.getLong("id"),
+                    resultSet.getString("sender"),
+                    resultSet.getString("receiver"),
+                    resultSet.getString("payment_date"),
+                    resultSet.getLong("amount")
+                );
+                System.out.println(output);
+            }
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+
+
+    protected void parseArgs(String[] args, Map<String, Object> pairs) {
 
         List<String> argsList = Arrays.asList(args);
         ListIterator<String> iter = argsList.listIterator();
@@ -126,7 +153,7 @@ public class DbManagerExt extends DbManager {
 
 
 
-    private void parseArgToKeyValue(String arg, Map<String, Object> pairs) {
+    protected void parseArgToKeyValue(String arg, Map<String, Object> pairs) {
 
         if (!arg.startsWith("-")) {
 
@@ -138,34 +165,7 @@ public class DbManagerExt extends DbManager {
     }
 
 
-
-    public void selectAllExpensesAndPrint(String table) {
-
-        try {
-            ResultSet resultSet =
-                mConnection.createStatement()
-                           .executeQuery(String.format("SELECT * FROM %s", table));
-
-            while (resultSet.next()) {
-                String output = String.format(
-                    "\nId: %d\nSender: %s\nReceiver: %s\nDate: %s\nAmount: %d\n",
-                    resultSet.getLong("id"),
-                    resultSet.getString("sender"),
-                    resultSet.getString("receiver"),
-                    resultSet.getString("payment_date"),
-                    resultSet.getLong("amount")
-                );
-                System.out.println(output);
-            }
-        }
-        catch (SQLException e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-
-
+    // region InsertQueryBuilder
     public static class InsertQueryBuilder extends AbstractQueryBuilder {
 
         protected String mArgs;
@@ -173,7 +173,7 @@ public class DbManagerExt extends DbManager {
 
 
         @Override
-        public AbstractQueryBuilder setArgs(Object... args) {
+        public AbstractQueryBuilder setArgs(Object[] args) {
 
             StringBuilder builder = new StringBuilder(16);
 
@@ -211,5 +211,6 @@ public class DbManagerExt extends DbManager {
         }
 
     }
+    // endregion
 
 }
