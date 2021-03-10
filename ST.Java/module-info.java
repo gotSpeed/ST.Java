@@ -12,5 +12,6 @@ module ST.Java {
     requires EleventhTask;
     requires TwelfthTask;
     requires ThirteenthTask;
+    requires EighteenthTask;
 
 }

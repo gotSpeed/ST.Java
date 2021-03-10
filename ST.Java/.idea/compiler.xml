@@ -9,9 +9,11 @@
         <module name="FourteenthTask" />
         <module name="FifteenthTask" />
         <module name="ThirteenthTask" />
+        <module name="EighteenthTask" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="EighteenthTask" target="1.13" />
       <module name="FifteenthTask" target="1.13" />
       <module name="FourteenthTask" target="1.13" />
       <module name="ThirteenthTask" target="1.11" />

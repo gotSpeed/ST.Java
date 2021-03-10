@@ -3,7 +3,7 @@
     <!ELEMENT map (point*)>
 
     <!ELEMENT point (x,y)>
-    <!ATTLIST point unit NMTOKEN #REQUIRED>
+    <!ATTLIST point unit (cm|mm|px) "px">
 
     <!ELEMENT x (#PCDATA)>
 
