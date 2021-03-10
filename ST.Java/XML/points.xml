@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE map SYSTEM "points.dtd">
 <map>
-    <point unit="cm">25</point>
-    <point unit="mm">25</point>
-    <point unit="px">25</point>
+    <point unit="cm">
+        <x>15</x>
+        <y>12</y>
+    </point>
+    <point unit="mm">
+        <x>75</x>
+        <y>64</y>
+    </point>
+    <point unit="px">
+        <x>34</x>
+        <y>50</y>
+    </point>
 </map>

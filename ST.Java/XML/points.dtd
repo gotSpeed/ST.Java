@@ -1,5 +1,7 @@
 <!DOCTYPE map [
-    <!ELEMENT map (point*|#PCDATA)>
-    <!ELEMENT point (#PCDATA)>
+    <!ELEMENT map (point*)>
+    <!ELEMENT point (x,y)>
+    <!ELEMENT x ANY>
+    <!ELEMENT y ANY>
     <!ATTLIST point unit (cm|mm|px) "px">
 ]>
