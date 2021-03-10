@@ -1,9 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<!DOCTYPE map [
-        <!ELEMENT map (point*)>
-        <!ELEMENT point (#PCDATA)>
-        <!ATTLIST point unit (cm|mm|px) "px">
-]>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE map SYSTEM "points.dtd">
 <map>
     <point unit="cm">25</point>
     <point unit="mm">25</point>
