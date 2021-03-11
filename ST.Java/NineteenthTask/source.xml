@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="transform.xsl"?>
+<!DOCTYPE map SYSTEM "source.dtd">
+<map>
+    <point unit="cm">
+        <x>15</x>
+        <y>12</y>
+    </point>
+    <point unit="mm">
+        <x>75</x>
+        <y>64</y>
+    </point>
+    <point>
+        <x>34</x>
+        <y>50</y>
+    </point>
+    <point>
+        <x>123</x>
+        <y>65</y>
+    </point>
+    <point unit="cm">
+        <x>2</x>
+        <y>74</y>
+    </point>
+</map>

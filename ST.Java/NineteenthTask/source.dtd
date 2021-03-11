@@ -1,0 +1,10 @@
+<?xml encoding="UTF-8"?>
+
+    <!ELEMENT map (point*)>
+
+    <!ELEMENT point (x,y)>
+    <!ATTLIST point unit (cm|mm|px) "px">
+
+    <!ELEMENT x (#PCDATA)>
+
+    <!ELEMENT y (#PCDATA)>

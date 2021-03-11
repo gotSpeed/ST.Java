@@ -29,6 +29,27 @@ public class Point {
 
         mY = y;
     }
+
+
+
+    public String getMeasureUnit() {
+
+        return mMeasureUnit;
+    }
+
+
+
+    public int getX() {
+
+        return mX;
+    }
+
+
+
+    public int getY() {
+
+        return mY;
+    }
     // endregion
 
 
