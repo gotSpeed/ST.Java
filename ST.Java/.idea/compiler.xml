@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="EighteenthTask" />
+        <module name="TwentiethTask" />
+        <module name="NineteenthTask" />
         <module name="FourteenthTask" />
         <module name="FifteenthTask" />
         <module name="ThirteenthTask" />
-        <module name="NineteenthTask" />
-        <module name="EighteenthTask" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -19,6 +20,7 @@
       <module name="FourteenthTask" target="1.13" />
       <module name="NineteenthTask" target="1.13" />
       <module name="ThirteenthTask" target="1.11" />
+      <module name="TwentiethTask" target="1.13" />
     </bytecodeTargetLevel>
   </component>
 </project>
