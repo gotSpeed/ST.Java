@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE plants SYSTEM "plants.dtd">
+
 <plants>
 
     <trees>
@@ -6,16 +8,58 @@
             <name>Apple tree</name>
             <genus>Apple tree</genus>
             <class>Dicotyledones</class>
-            <description>
-                The apple is a small tree that can reach 25 feet
-                in height with a crown spread of 25 feet...
-            </description>
+            <description>The apple is a small tree that can reach 25 feet
+                in height with a crown spread of 25 feet...</description>
             <proportions>
                 <width>7.6</width>
                 <height>12.1</height>
+                <trunk-thickness>0.44</trunk-thickness>
             </proportions>
-            <trunk-thickness>0.44</trunk-thickness>
+            <fruit>
+                <name>Apple</name>
+                <colour>red</colour>
+            </fruit>
             <painted>true</painted>
+        </tree>
+
+        <tree>
+            <name>Pear</name>
+            <genus>Pear</genus>
+            <class>Dicotyledones</class>
+            <description>Pear fruit are generally sweeter and of softer texture
+                than apples and are distinguished by the presence of
+                hard cells in the flesh...</description>
+            <proportions>
+                <width>8.2</width>
+                <height>11.3</height>
+                <trunk-thickness>0.68</trunk-thickness>
+            </proportions>
+            <fruit>
+                <name>Pear</name>
+                <colour>green</colour>
+            </fruit>
+            <painted>true</painted>
+        </tree>
+
+        <tree>
+            <name>Rowan</name>
+            <genus>Rowan</genus>
+            <class>Dicotyledones</class>
+            <description>Rowan Trees are comparatively small and grow in a compact
+                upright shape. Rowan is sometimes called the mountain ash
+                tree because of the similarity of its leaves to ash trees,
+                both having many opposing finger like leaflets set along
+                either side of a midrib.</description>
+            <proportions>
+                <width>7.7</width>
+                <height>14.1</height>
+                <trunk-thickness>0.39</trunk-thickness>
+            </proportions>
+            <fruit>
+                <name>Rowan berry</name>
+                <colour>orange</colour>
+            </fruit>
+            <painted>false</painted>
         </tree>
     </trees>
 
@@ -24,11 +68,105 @@
             <name>Guelder rose</name>
             <genus>Viburnum</genus>
             <class>Dicotyledones</class>
+            <description>Guelder rose is a spreading, deciduous, upright shrub. It can reach up
+                to 4m high and can spread from 2–5m. It has greyish, hairless stems.</description>
+            <proportions>
+                <width>3.6</width>
+                <height>3.4</height>
+                <row-length>4</row-length>
+            </proportions>
+            <fruit>
+                <name>Viburnum berry</name>
+                <colour>red</colour>
+            </fruit>
+        </bush>
+
+        <bush>
+            <name>Gooseberry</name>
+            <genus>Currant</genus>
+            <class>Dicotyledones</class>
+            <description>Gooseberry (Ribes spp.) is a small spiny bush in the family Rosaceae
+                which is grown for its edible fruit of the same name.</description>
+            <proportions>
+                <width>1.2</width>
+                <height>0.9</height>
+                <row-length>11</row-length>
+            </proportions>
+            <fruit>
+                <name>Gooseberry berry</name>
+                <colour>dark violet</colour>
+            </fruit>
+        </bush>
+
+        <bush>
+            <name>Hawthorn</name>
+            <genus>Hawthorn</genus>
+            <class>Dicotyledones</class>
+            <description>Hawthorn is a dense, thorny shrub that grows 5–13 ft
+                (1.5–4 m) high. It has white flowers that look like
+                roses and is considered one of the most beautiful of all.
+                The shrubs that flower in the spring.</description>
+            <proportions>
+                <width>6.2</width>
+                <height>6.0</height>
+                <row-length>3</row-length>
+            </proportions>
+            <fruit>
+                <name>Hawthorn berry</name>
+                <colour>red</colour>
+            </fruit>
         </bush>
     </bushes>
 
     <flowers>
+        <flower>
+            <name>Rose</name>
+            <genus>Rose hip</genus>
+            <class>Dicotyledones</class>
+            <description>Roses are erect, climbing, or trailing shrubs, the
+                stems of which are usually copiously armed with prickles
+                of various shapes and sizes, commonly called thorns. The
+                leaves are alternate and pinnately compound (i.e., feather-formed),
+                usually with oval leaflets that are sharply toothed.</description>
+            <proportions>
+                <width>0.06</width>
+                <height>1.2</height>
+                <stem-length>1.1</stem-length>
+            </proportions>
+            <blossom-colour>red</blossom-colour>
+        </flower>
 
+        <flower>
+            <name>Chamomile</name>
+            <genus>Chamomile</genus>
+            <class>Dicotyledones</class>
+            <description>Chamomile is a plant that has been used since ancient Egypt
+                in a variety of healing applications. Chamomile is a native
+                of the Old World; it is related to the daisy family, having
+                strongly scented foliage and flowers with white petals and yellow centers.</description>
+            <proportions>
+                <width>0.04</width>
+                <height>0.4</height>
+                <stem-length>0.36</stem-length>
+            </proportions>
+            <blossom-colour>white</blossom-colour>
+        </flower>
+
+        <flower>
+            <name>Tulip</name>
+            <genus>Tulip</genus>
+            <class>Monocotyledones</class>
+            <description>Tulips (Tulipa) form a genus of spring-blooming perennial
+                herbaceous bulbiferous geophytes (having bulbs as storage
+                organs). The flowers are usually large, showy and brightly
+                colored, generally red, pink, yellow, or white (usually in warm colors).</description>
+            <proportions>
+                <width>0.08</width>
+                <height>0.6</height>
+                <stem-length>0.58</stem-length>
+            </proportions>
+            <blossom-colour>yellow</blossom-colour>
+        </flower>
     </flowers>
 
 </plants>

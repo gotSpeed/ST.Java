@@ -18,7 +18,15 @@ public class Bush extends FruitfulPlant {
 
         super(characteristics);
         mRowLength =
-            Integer.parseInt(characteristics.get(PlantCharacteristic.ROW_LENGTH.name()));
+            Integer.parseInt(characteristics.get(PlantCharacteristic.ROW_LENGTH.value()));
+    }
+
+
+
+    @Override
+    public double getOccupiedSpace() {
+
+        return mWidth * mRowLength;
     }
 
 }

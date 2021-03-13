@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!ELEMENT plants (trees, bushes, flowers)*>
+
+    <!ELEMENT trees (tree)+>
+    <!ELEMENT bushes (bush)+>
+    <!ELEMENT flowers (flower)+>
+
+    <!ELEMENT tree (name, genus, class, description, proportions, fruit, painted)>
+    <!ELEMENT bush (name, genus, class, description, proportions, fruit)>
+    <!ELEMENT flower (name, genus, class, description, proportions, blossom-colour)>
+
+    <!ELEMENT proportions (width, height, (trunk-thickness|row-length|stem-length))>
+    <!ELEMENT fruit (name, colour)>
+
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT genus (#PCDATA)>
+    <!ELEMENT class (#PCDATA)>
+    <!ELEMENT description (#PCDATA)>
+    <!ELEMENT painted (#PCDATA)>
+    <!ELEMENT blossom-colour (#PCDATA)>
+    <!ELEMENT width (#PCDATA)>
+    <!ELEMENT height (#PCDATA)>
+    <!ELEMENT trunk-thickness (#PCDATA)>
+    <!ELEMENT row-length (#PCDATA)>
+    <!ELEMENT stem-length (#PCDATA)>
+    <!ELEMENT colour (#PCDATA)>

@@ -12,79 +12,35 @@ public class Plant {
     protected String mGenus;
     protected String mDescription;
 
-    protected int mWidth;
-    protected int mHeight;
+    protected double mWidth;
+    protected double mHeight;
 
 
 
     public Plant(Map<String, String> characteristics) {
 
-        mName        = characteristics.get(PlantCharacteristic.NAME.name());
-        mPlantClass  = characteristics.get(PlantCharacteristic.CLASS.name());
-        mGenus       = characteristics.get(PlantCharacteristic.GENUS.name());
-        mDescription = characteristics.get(PlantCharacteristic.DESCRIPTION.name());
+        mName        = characteristics.get(PlantCharacteristic.NAME.value());
+        mPlantClass  = characteristics.get(PlantCharacteristic.CLASS.value());
+        mGenus       = characteristics.get(PlantCharacteristic.GENUS.value());
+        mDescription = characteristics.get(PlantCharacteristic.DESCRIPTION.value());
         mWidth       =
-            Integer.parseInt(characteristics.get(PlantCharacteristic.WIDTH.name()));
+            Double.parseDouble(characteristics.get(PlantCharacteristic.WIDTH.value()));
         mHeight      =
-            Integer.parseInt(characteristics.get(PlantCharacteristic.HEIGHT.name()));
+            Double.parseDouble(characteristics.get(PlantCharacteristic.HEIGHT.value()));
     }
 
 
 
-    // region getters/setters
-    public String getPlantClass() {
-
-        return mPlantClass;
-    }
-
-
-
-    public String getName() {
-
-        return mName;
-    }
-
-
-
-    public void setName(String name) {
-
-        mName = name;
-    }
-
-
-
-    public void setPlantClass(String aClass) {
-
-        mPlantClass = aClass;
-    }
-
-
-
-    public int getWidth() {
+    public double getOccupiedSpace() {
 
         return mWidth;
     }
 
 
 
-    public void setWidth(int width) {
-
-        mWidth = width;
-    }
-
-
-
-    public int getHeight() {
+    public double getHeight() {
 
         return mHeight;
     }
-
-
-
-    public void setHeight(int height) {
-
-        mHeight = height;
-    }
-    // endregion
 
 }

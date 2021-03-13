@@ -11,16 +11,24 @@ import java.util.Map;
 public class Flower extends Plant {
 
     protected String mBlossomColour;
-    protected int    mStemLength;
+    protected double mStemLength;
 
 
 
     public Flower(Map<String, String> characteristics) {
 
         super(characteristics);
-        mBlossomColour = characteristics.get(PlantCharacteristic.BLOSSOM_COLOUR.name());
+        mBlossomColour = characteristics.get(PlantCharacteristic.BLOSSOM_COLOUR.value());
         mStemLength    =
-            Integer.parseInt(characteristics.get(PlantCharacteristic.STEM_LENGTH.name()));
+            Double.parseDouble(characteristics.get(PlantCharacteristic.STEM_LENGTH.value()));
+    }
+
+
+
+    @Override
+    public double getOccupiedSpace() {
+
+        return (int) (mWidth * 1.5);
     }
 
 }

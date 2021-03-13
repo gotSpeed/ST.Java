@@ -2,31 +2,29 @@ package twentieth.parser;
 
 
 import org.xml.sax.SAXException;
+import twentieth.park.Park;
 import twentieth.parser.handler.PlantsParserHandler;
-import twentieth.plants.Plant;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 
 
 public class PlantsParser {
 
-    private static final String FILE_ERROR_MESSAGE =
+    private static final String FILE_ERROR_MSG =
         "\nFile does not exist or wrong file location is provided\n";
 
-
-    private List<Plant> mPlants;
-
+    private Park mPark;
 
 
-    public List<Plant> getPlants() {
 
-        return mPlants;
+    public PlantsParser(Park park) {
+
+        mPark = park;
     }
 
 
@@ -38,16 +36,17 @@ public class PlantsParser {
             File file = new File(filepath);
 
             if (file.exists()) {
-                SAXParser parser = SAXParserFactory.newInstance()
-                                                   .newSAXParser();
+                SAXParserFactory factory = SAXParserFactory.newInstance();
+                factory.setValidating(true);
+                SAXParser parser = factory.newSAXParser();
 
-                PlantsParserHandler handler = new PlantsParserHandler();
+                PlantsParserHandler handler = new PlantsParserHandler(mPark);
+
 
                 parser.parse(filepath, handler);
-                mPlants = handler.getPlants();
             }
             else {
-                System.out.println(FILE_ERROR_MESSAGE);
+                System.out.println(FILE_ERROR_MSG);
             }
         }
         catch (ParserConfigurationException | SAXException | IOException e) {

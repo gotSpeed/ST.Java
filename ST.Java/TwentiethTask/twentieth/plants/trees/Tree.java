@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class Tree extends FruitfulPlant {
 
-    protected int     mTrunkThickness;
+    protected double  mTrunkThickness;
     protected boolean mIsPainted;
 
 
@@ -19,39 +19,9 @@ public class Tree extends FruitfulPlant {
 
         super(characteristics);
         mTrunkThickness =
-            Integer.parseInt(characteristics.get(PlantCharacteristic.TRUNK_THICKNESS.name()));
+            Double.parseDouble(characteristics.get(PlantCharacteristic.TRUNK_THICKNESS.value()));
         mIsPainted      =
-            Boolean.parseBoolean(characteristics.get(PlantCharacteristic.IS_PAINTED.name()));
+            Boolean.parseBoolean(characteristics.get(PlantCharacteristic.IS_PAINTED.value()));
     }
-
-
-
-    // region getters/setters
-    public int getTrunkThickness() {
-
-        return mTrunkThickness;
-    }
-
-
-
-    public void setTrunkThickness(int trunkThickness) {
-
-        mTrunkThickness = trunkThickness;
-    }
-
-
-
-    public boolean isPainted() {
-
-        return mIsPainted;
-    }
-
-
-
-    public void setPainted(boolean painted) {
-
-        mIsPainted = painted;
-    }
-    // endregion
 
 }

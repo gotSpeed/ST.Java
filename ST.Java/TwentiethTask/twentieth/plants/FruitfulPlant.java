@@ -15,8 +15,8 @@ public class FruitfulPlant extends Plant {
     public FruitfulPlant(Map<String, String> characteristics) {
 
         super(characteristics);
-        mFruitName  = characteristics.get(PlantCharacteristic.FRUIT_NAME.name());
-        mFruitColor = characteristics.get(PlantCharacteristic.FRUIT_COLOUR.name());
+        mFruitName  = characteristics.get(PlantCharacteristic.FRUIT_NAME.value());
+        mFruitColor = characteristics.get(PlantCharacteristic.FRUIT_COLOUR.value());
     }
 
 }
