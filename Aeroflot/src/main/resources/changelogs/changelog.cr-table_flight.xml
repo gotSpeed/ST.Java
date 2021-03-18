@@ -1,0 +1,71 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                      http://www.liquibase.org/xml/ns/dbchangelog-ext
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                      http://www.liquibase.org/xml/ns/pro
+                      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.3.xsd">
+
+  <changeSet id="1" author="STJava">
+    <createTable tableName="flight">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" />
+      </column>
+
+      <column name="created_by" type="bigint">
+        <constraints nullable="false"
+                     referencedTableName="user"
+                     referencedColumnNames="id"
+                     foreignKeyName="FK_flight_user" />
+      </column>
+
+      <column name="status" type="varchar(16)">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="when_registered" type="timestamp" defaultValueComputed="current_timestamp">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="departure_datetime" type="timestamp">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="arrival_datetime" type="timestamp">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="departure_point" type="smallint">
+        <constraints nullable="false"
+                     referencedTableName="country"
+                     referencedColumnNames="id"
+                     foreignKeyName="FK_flight_country.departurepoint" />
+      </column>
+
+      <column name="arrival_point" type="smallint">
+        <constraints nullable="false"
+                     referencedTableName="country"
+                     referencedColumnNames="id"
+                     foreignKeyName="FK_flight_country.arrivalpoint" />
+      </column>
+
+      <column name="plane" type="bigint">
+        <constraints nullable="false"
+                     referencedTableName="plane"
+                     referencedColumnNames="id"
+                     foreignKeyName="FK_flight_plane" />
+      </column>
+
+      <column name="crew" type="bigint">
+        <constraints nullable="false"
+                     referencedTableName="crew"
+                     referencedColumnNames="id"
+                     foreignKeyName="FK_flight_crew" />
+      </column>
+    </createTable>
+  </changeSet>
+
+</databaseChangeLog>

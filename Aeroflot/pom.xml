@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>Aeroflot</groupId>
+  <artifactId>Aeroflot</artifactId>
+  <version>1.0</version>
+
+  <properties>
+    <maven.compiler.target>13</maven.compiler.target>
+    <maven.compiler.source>13</maven.compiler.source>
+  </properties>
+
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.19</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+
+        <plugin>
+          <!--start with basic information to get Liquibase plugin:
+          include <groupId>, <artifactID>, and <version> elements-->
+          <groupId>org.liquibase</groupId>
+          <artifactId>liquibase-maven-plugin</artifactId>
+          <version>4.2.0</version>
+
+          <configuration>
+            <!--set values for Liquibase properties and settings
+            for example, the location of a properties file to use-->
+            <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+          </configuration>
+
+          <dependencies>
+            <!--set up any dependencies for Liquibase to function in your environment for example, a database-specific plugin-->
+            <dependency>
+              <groupId>org.postgresql</groupId>
+              <artifactId>postgresql</artifactId>
+              <version>42.2.19</version>
+            </dependency>
+
+          </dependencies>
+        </plugin>
+
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>

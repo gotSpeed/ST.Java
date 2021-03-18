@@ -1,0 +1,9 @@
+/workspace.xml
+/codeStyles
+/dictionaries/
+/uiDesigner.xml
+/vcs.xml
+
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml

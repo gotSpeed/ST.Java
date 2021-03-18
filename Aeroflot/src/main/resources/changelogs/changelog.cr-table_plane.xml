@@ -1,0 +1,54 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                      http://www.liquibase.org/xml/ns/dbchangelog-ext
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                      http://www.liquibase.org/xml/ns/pro
+                      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.3.xsd">
+
+  <changeSet id="1" author="STJava">
+    <createTable tableName="plane">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" />
+      </column>
+
+      <column name="title" type="varchar">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="model" type="varchar">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="manufacturer" type="int">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="manufacture_date" type="date">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="flights_amount" type="smallint">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="seats_count" type="smallint">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="max_flight_distance" type="smallint">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+
+    <addForeignKeyConstraint baseTableName="plane"
+                             baseColumnNames="manufacturer"
+                             constraintName="FK_plane_manufacturer"
+                             referencedTableName="manufacturer"
+                             referencedColumnNames="id" />
+  </changeSet>
+
+</databaseChangeLog>
