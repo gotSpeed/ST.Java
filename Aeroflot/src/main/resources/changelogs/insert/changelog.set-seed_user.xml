@@ -1,0 +1,35 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                      http://www.liquibase.org/xml/ns/dbchangelog-ext
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                      http://www.liquibase.org/xml/ns/pro
+                      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.3.xsd">
+
+  <changeSet id="1" author="STJava">
+    <insert tableName="user">
+      <column name="username" value="samuil_marshak" />
+      <column name="password"
+              value="d1d244429987949f742179bc25c6f5bd52f796d7b3731fb17806c60b0981a4d8" />
+      <column name="person" value="27" />
+    </insert>
+
+    <insert tableName="user">
+      <column name="username" value="bolzhedor_victorovich" />
+      <column name="password"
+              value="7ddf8ea017c54aa0b22a3c86a3062df90d5768707a4e06d783e5d3bd168081db" />
+      <column name="person" value="26" />
+    </insert>
+
+    <insert tableName="user">
+      <column name="username" value="anton_pavlov" />
+      <column name="password"
+              value="b34c2ceb5b8edeae88bbf2b9d5df8cda2af5d133d5b947807a4643186f31b686" />
+      <column name="person" value="25" />
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

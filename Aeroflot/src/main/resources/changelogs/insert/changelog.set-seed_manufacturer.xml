@@ -1,0 +1,56 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                      http://www.liquibase.org/xml/ns/dbchangelog-ext
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                      http://www.liquibase.org/xml/ns/pro
+                      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.3.xsd">
+
+  <changeSet id="1" author="STJava">
+    <delete tableName="manufacturer" />
+
+    <insert tableName="manufacturer">
+      <column name="title" value="Aerospatiale/Alenia" />
+    </insert>
+
+    <insert tableName="manufacturer">
+      <column name="title" value="Airbus S.A.S." />
+    </insert>
+
+    <insert tableName="manufacturer">
+      <column name="title" value="Bell/Agusta Aerospace Company" />
+    </insert>
+
+    <insert tableName="manufacturer">
+      <column name="title" value="Boeing" />
+    </insert>
+
+    <insert tableName="manufacturer">
+      <column name="title" value="Bombardier Aerospace" />
+    </insert>
+
+    <insert tableName="manufacturer">
+      <column name="title" value="British Aerospace" />
+    </insert>
+
+    <insert tableName="manufacturer">
+      <column name="title" value="British Aircraft Corporation" />
+    </insert>
+
+    <insert tableName="manufacturer">
+      <column name="title" value="Britten-Norman" />
+    </insert>
+
+    <insert tableName="manufacturer">
+      <column name="title" value="Cessna Aircraft" />
+    </insert>
+
+    <insert tableName="manufacturer">
+      <column name="title" value="Czech Aircraft Works" />
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

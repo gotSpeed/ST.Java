@@ -1,0 +1,344 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                      http://www.liquibase.org/xml/ns/dbchangelog-ext
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                      http://www.liquibase.org/xml/ns/pro
+                      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.3.xsd">
+
+  <changeSet id="1" author="STJava">
+    <delete tableName="person" />
+
+    <!-- Pilots -->
+    <!-- 1 -->
+    <insert tableName="person">
+      <column name="name" value="Alexander" />
+      <column name="surname" value="Bely" />
+      <column name="age" value="34" />
+      <column name="birth_date" value="1986-11-03" />
+      <column name="sex" value="M" />
+      <column name="passport_identifier" value="MP3257193" />
+      <column name="issue_date" value="1992-11-03" />
+      <column name="position" value="2" />
+    </insert>
+
+    <!-- 2 -->
+    <insert tableName="person">
+      <column name="name" value="Pawel" />
+      <column name="surname" value="Krasny" />
+      <column name="age" value="28" />
+      <column name="birth_date" value="1992-04-13" />
+      <column name="sex" value="M" />
+      <column name="passport_identifier" value="MP3931193" />
+      <column name="issue_date" value="2000-04-13" />
+      <column name="position" value="2" />
+    </insert>
+
+    <!-- 3 -->
+    <insert tableName="person">
+      <column name="name" value="Anton" />
+      <column name="surname" value="Mochalov" />
+      <column name="age" value="45" />
+      <column name="birth_date" value="1975-08-22" />
+      <column name="sex" value="M" />
+      <column name="passport_identifier" value="MP2061193" />
+      <column name="issue_date" value="1980-08-22" />
+      <column name="position" value="2" />
+    </insert>
+
+    <!-- 4 -->
+    <insert tableName="person">
+      <column name="name" value="Anna" />
+      <column name="surname" value="Shestopalova" />
+      <column name="age" value="37" />
+      <column name="birth_date" value="1983-01-29" />
+      <column name="sex" value="F" />
+      <column name="passport_identifier" value="MP2077893" />
+      <column name="issue_date" value="1990-01-29" />
+      <column name="position" value="2" />
+    </insert>
+
+    <!-- 5 -->
+    <insert tableName="person">
+      <column name="name" value="Gennady" />
+      <column name="surname" value="Popov" />
+      <column name="age" value="46" />
+      <column name="birth_date" value="1975-11-14" />
+      <column name="sex" value="M" />
+      <column name="passport_identifier" value="MP2070223" />
+      <column name="issue_date" value="1990-04-11" />
+      <column name="position" value="2" />
+    </insert>
+
+    <!-- 6 -->
+    <insert tableName="person">
+      <column name="name" value="Natalia" />
+      <column name="surname" value="Manova" />
+      <column name="age" value="26" />
+      <column name="birth_date" value="1993-05-17" />
+      <column name="sex" value="F" />
+      <column name="passport_identifier" value="MP2010223" />
+      <column name="issue_date" value="2004-07-17" />
+      <column name="position" value="2" />
+    </insert>
+
+    <!-- 7 -->
+    <insert tableName="person">
+      <column name="name" value="Karolina" />
+      <column name="surname" value="Parova" />
+      <column name="age" value="41" />
+      <column name="birth_date" value="1979-09-02" />
+      <column name="sex" value="F" />
+      <column name="passport_identifier" value="MP2310223" />
+      <column name="issue_date" value="2002-12-16" />
+      <column name="position" value="2" />
+    </insert>
+
+    <!-- 8 -->
+    <insert tableName="person">
+      <column name="name" value="Stanislav" />
+      <column name="surname" value="Stasov" />
+      <column name="age" value="38" />
+      <column name="birth_date" value="1982-07-15" />
+      <column name="sex" value="M" />
+      <column name="passport_identifier" value="MP2319211" />
+      <column name="issue_date" value="2007-03-19" />
+      <column name="position" value="2" />
+    </insert>
+
+    <!-- Navigators -->
+    <!-- 9 -->
+    <insert tableName="person">
+      <column name="name" value="Alexey" />
+      <column name="surname" value="Gavrilov" />
+      <column name="age" value="24" />
+      <column name="birth_date" value="1996-12-14" />
+      <column name="sex" value="M" />
+      <column name="passport_identifier" value="MP2832211" />
+      <column name="issue_date" value="2010-11-12" />
+      <column name="position" value="3" />
+    </insert>
+
+    <!-- 10 -->
+    <insert tableName="person">
+      <column name="name" value="Artem" />
+      <column name="surname" value="Cherny" />
+      <column name="age" value="26" />
+      <column name="birth_date" value="1994-08-26" />
+      <column name="sex" value="M" />
+      <column name="passport_identifier" value="MP2039211" />
+      <column name="issue_date" value="2005-10-19" />
+      <column name="position" value="3" />
+    </insert>
+
+    <!-- 11 -->
+    <insert tableName="person">
+      <column name="name" value="David" />
+      <column name="surname" value="Vedomy" />
+      <column name="age" value="32" />
+      <column name="birth_date" value="1988-12-28" />
+      <column name="sex" value="M" />
+      <column name="passport_identifier" value="MP2999211" />
+      <column name="issue_date" value="1999-01-16" />
+      <column name="position" value="3" />
+    </insert>
+
+    <!-- 12 -->
+    <insert tableName="person">
+      <column name="name" value="Jaffar" />
+      <column name="surname" value="Monk" />
+      <column name="age" value="51" />
+      <column name="birth_date" value="1969-02-17" />
+      <column name="sex" value="M" />
+      <column name="passport_identifier" value="MP2904611" />
+      <column name="issue_date" value="2015-03-17" />
+      <column name="position" value="3" />
+    </insert>
+
+    <!-- Radio operators -->
+    <!-- 13 -->
+    <insert tableName="person">
+      <column name="name" value="Janna" />
+      <column name="surname" value="Byk" />
+      <column name="age" value="43" />
+      <column name="birth_date" value="1977-11-23" />
+      <column name="sex" value="F" />
+      <column name="passport_identifier" value="MP2904611" />
+      <column name="issue_date" value="2010-11-17" />
+      <column name="position" value="4" />
+    </insert>
+
+    <!-- 14 -->
+    <insert tableName="person">
+      <column name="name" value="Anastasia" />
+      <column name="surname" value="Trench" />
+      <column name="age" value="36" />
+      <column name="birth_date" value="1984-10-11" />
+      <column name="sex" value="F" />
+      <column name="passport_identifier" value="MP2954611" />
+      <column name="issue_date" value="1999-05-22" />
+      <column name="position" value="4" />
+    </insert>
+
+    <!-- 15 -->
+    <insert tableName="person">
+      <column name="name" value="Aliona" />
+      <column name="surname" value="Krestovaia" />
+      <column name="age" value="39" />
+      <column name="birth_date" value="1981-10-17" />
+      <column name="sex" value="F" />
+      <column name="passport_identifier" value="MP2936611" />
+      <column name="issue_date" value="1997-11-10" />
+      <column name="position" value="4" />
+    </insert>
+
+    <!-- 16 -->
+    <insert tableName="person">
+      <column name="name" value="Kristina" />
+      <column name="surname" value="Zheltaia" />
+      <column name="age" value="31" />
+      <column name="birth_date" value="1989-04-29" />
+      <column name="sex" value="F" />
+      <column name="passport_identifier" value="MP8346611" />
+      <column name="issue_date" value="2004-04-17" />
+      <column name="position" value="4" />
+    </insert>
+
+    <!-- Stewardesses -->
+    <!-- 17 -->
+    <insert tableName="person">
+      <column name="name" value="Anna" />
+      <column name="surname" value="Bogemskaia" />
+      <column name="age" value="22" />
+      <column name="birth_date" value="1998-04-11" />
+      <column name="sex" value="F" />
+      <column name="passport_identifier" value="MP8934611" />
+      <column name="issue_date" value="2012-12-02" />
+      <column name="position" value="5" />
+    </insert>
+
+    <!-- 18 -->
+    <insert tableName="person">
+      <column name="name" value="Susanna" />
+      <column name="surname" value="Parashutova" />
+      <column name="age" value="29" />
+      <column name="birth_date" value="1991-12-01" />
+      <column name="sex" value="F" />
+      <column name="passport_identifier" value="MP8364611" />
+      <column name="issue_date" value="2005-03-25" />
+      <column name="position" value="5" />
+    </insert>
+
+    <!-- 19 -->
+    <insert tableName="person">
+      <column name="name" value="Svetlana" />
+      <column name="surname" value="Kamennaia" />
+      <column name="age" value="37" />
+      <column name="birth_date" value="1983-01-18" />
+      <column name="sex" value="F" />
+      <column name="passport_identifier" value="MP8392741" />
+      <column name="issue_date" value="1990-12-12" />
+      <column name="position" value="5" />
+    </insert>
+
+    <!-- 20 -->
+    <insert tableName="person">
+      <column name="name" value="Semen" />
+      <column name="surname" value="Siniy" />
+      <column name="age" value="45" />
+      <column name="birth_date" value="1975-02-09" />
+      <column name="sex" value="M" />
+      <column name="passport_identifier" value="MP8927411" />
+      <column name="issue_date" value="1990-10-27" />
+      <column name="position" value="5" />
+    </insert>
+
+    <!-- 21 -->
+    <insert tableName="person">
+      <column name="name" value="Victor" />
+      <column name="surname" value="Kisly" />
+      <column name="age" value="31" />
+      <column name="birth_date" value="1989-01-11" />
+      <column name="sex" value="M" />
+      <column name="passport_identifier" value="M9427451" />
+      <column name="issue_date" value="2004-12-13" />
+      <column name="position" value="5" />
+    </insert>
+
+    <!-- 22 -->
+    <insert tableName="person">
+      <column name="name" value="Eleonora" />
+      <column name="surname" value="Gabenova" />
+      <column name="age" value="29" />
+      <column name="birth_date" value="1991-06-02" />
+      <column name="sex" value="F" />
+      <column name="passport_identifier" value="M9493221" />
+      <column name="issue_date" value="2007-07-08" />
+      <column name="position" value="5" />
+    </insert>
+
+    <!-- 23 -->
+    <insert tableName="person">
+      <column name="name" value="Valentina" />
+      <column name="surname" value="Babova" />
+      <column name="age" value="42" />
+      <column name="birth_date" value="1978-11-24" />
+      <column name="sex" value="F" />
+      <column name="passport_identifier" value="M9499371" />
+      <column name="issue_date" value="1998-10-24" />
+      <column name="position" value="5" />
+    </insert>
+
+    <!-- 24 -->
+    <insert tableName="person">
+      <column name="name" value="Isabella" />
+      <column name="surname" value="Pirogova" />
+      <column name="age" value="27" />
+      <column name="birth_date" value="1993-05-16" />
+      <column name="sex" value="F" />
+      <column name="passport_identifier" value="M9483641" />
+      <column name="issue_date" value="2011-12-04" />
+      <column name="position" value="5" />
+    </insert>
+  </changeSet>
+
+  <changeSet id="2" author="STJava">
+    <!-- Administrators -->
+    <insert tableName="person">
+      <column name="name" value="Anton" />
+      <column name="surname" value="Pavlov" />
+      <column name="age" value="56" />
+      <column name="birth_date" value="1964-12-02" />
+      <column name="sex" value="M" />
+      <column name="passport_identifier" value="M9493741" />
+      <column name="issue_date" value="2013-10-14" />
+      <column name="position" value="1" />
+    </insert>
+
+    <insert tableName="person">
+      <column name="name" value="Bolzhedor" />
+      <column name="surname" value="Victorovich" />
+      <column name="age" value="44" />
+      <column name="birth_date" value="1976-06-18" />
+      <column name="sex" value="M" />
+      <column name="passport_identifier" value="M9937741" />
+      <column name="issue_date" value="2004-12-10" />
+      <column name="position" value="1" />
+    </insert>
+
+    <insert tableName="person">
+      <column name="name" value="Samuil" />
+      <column name="surname" value="Marshak" />
+      <column name="age" value="47" />
+      <column name="birth_date" value="1973-09-05" />
+      <column name="sex" value="M" />
+      <column name="passport_identifier" value="M9992741" />
+      <column name="issue_date" value="2008-11-19" />
+      <column name="position" value="1" />
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

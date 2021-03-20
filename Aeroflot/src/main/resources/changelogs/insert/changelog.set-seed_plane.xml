@@ -1,0 +1,115 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                      http://www.liquibase.org/xml/ns/dbchangelog-ext
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                      http://www.liquibase.org/xml/ns/pro
+                      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.3.xsd">
+
+  <changeSet id="1" author="STJava">
+    <delete tableName="plane" />
+
+    <!-- 1 -->
+    <insert tableName="plane">
+      <column name="title" value="Туполев" />
+      <column name="model" value="Ту-134" />
+      <column name="manufacturer" value="1" />
+      <column name="manufacture_date" value="2011-12-04" />
+      <column name="flights_amount" value="13" />
+      <column name="seats_count" value="96" />
+      <column name="max_flight_distance" value="2800" />
+    </insert>
+
+    <!-- 2 -->
+    <insert tableName="plane">
+      <column name="title" value="Туполев" />
+      <column name="model" value="Ту-154" />
+      <column name="manufacturer" value="6" />
+      <column name="manufacture_date" value="2013-11-24" />
+      <column name="flights_amount" value="23" />
+      <column name="seats_count" value="180" />
+      <column name="max_flight_distance" value="3000" />
+    </insert>
+
+    <!-- 3 -->
+    <insert tableName="plane">
+      <column name="title" value="Sukhoi" />
+      <column name="model" value="SuperJet-100" />
+      <column name="manufacturer" value="3" />
+      <column name="manufacture_date" value="2017-02-28" />
+      <column name="flights_amount" value="34" />
+      <column name="seats_count" value="98" />
+      <column name="max_flight_distance" value="3500" />
+    </insert>
+
+    <!-- 4 -->
+    <insert tableName="plane">
+      <column name="title" value="Ильюшин" />
+      <column name="model" value="ИЛ-62" />
+      <column name="manufacturer" value="10" />
+      <column name="manufacture_date" value="2011-07-08" />
+      <column name="flights_amount" value="22" />
+      <column name="seats_count" value="198" />
+      <column name="max_flight_distance" value="10000" />
+    </insert>
+
+    <!-- 5 -->
+    <insert tableName="plane">
+      <column name="title" value="Ильюшин" />
+      <column name="model" value="ИЛ-86" />
+      <column name="manufacturer" value="8" />
+      <column name="manufacture_date" value="2015-09-14" />
+      <column name="flights_amount" value="27" />
+      <column name="seats_count" value="234" />
+      <column name="max_flight_distance" value="4350" />
+    </insert>
+
+    <!-- 6 -->
+    <insert tableName="plane">
+      <column name="title" value="Аэробус" />
+      <column name="model" value="Airbus A310" />
+      <column name="manufacturer" value="7" />
+      <column name="manufacture_date" value="2019-02-20" />
+      <column name="flights_amount" value="9" />
+      <column name="seats_count" value="183" />
+      <column name="max_flight_distance" value="4500" />
+    </insert>
+
+    <!-- 7 -->
+    <insert tableName="plane">
+      <column name="title" value="Аэробус" />
+      <column name="model" value="Airbus A330" />
+      <column name="manufacturer" value="2" />
+      <column name="manufacture_date" value="2018-12-01" />
+      <column name="flights_amount" value="14" />
+      <column name="seats_count" value="335" />
+      <column name="max_flight_distance" value="8980" />
+    </insert>
+
+    <!-- 8 -->
+    <insert tableName="plane">
+      <column name="title" value="Боинг-737" />
+      <column name="model" value="Boeing-737" />
+      <column name="manufacturer" value="4" />
+      <column name="manufacture_date" value="2015-03-04" />
+      <column name="flights_amount" value="33" />
+      <column name="seats_count" value="140" />
+      <column name="max_flight_distance" value="6700" />
+    </insert>
+
+    <!-- 9 -->
+    <insert tableName="plane">
+      <column name="title" value="Боинг-777" />
+      <column name="model" value="Boeing-777" />
+      <column name="manufacturer" value="8" />
+      <column name="manufacture_date" value="2016-04-19" />
+      <column name="flights_amount" value="26" />
+      <column name="seats_count" value="150" />
+      <column name="max_flight_distance" value="7400" />
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

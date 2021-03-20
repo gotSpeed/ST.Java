@@ -1,0 +1,183 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                      http://www.liquibase.org/xml/ns/dbchangelog-ext
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                      http://www.liquibase.org/xml/ns/pro
+                      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.3.xsd">
+  <changeSet id="1" author="STJava">
+    <delete tableName="country" />
+
+    <!-- 1 -->
+    <insert tableName="country">
+      <column name="title" value="Abkhazia" />
+      <column name="country_code" value="AB" />
+    </insert>
+
+    <!-- 2 -->
+    <insert tableName="country">
+      <column name="title" value="Australia" />
+      <column name="country_code" value="AU" />
+    </insert>
+
+    <!-- 3 -->
+    <insert tableName="country">
+      <column name="title" value="Austria" />
+      <column name="country_code" value="AT" />
+    </insert>
+
+    <!-- 4 -->
+    <insert tableName="country">
+      <column name="title" value="Azerbaijan" />
+      <column name="country_code" value="AZ" />
+    </insert>
+
+    <!-- 5 -->
+    <insert tableName="country">
+      <column name="title" value="Albania" />
+      <column name="country_code" value="AL" />
+    </insert>
+
+    <!-- 6 -->
+    <insert tableName="country">
+      <column name="title" value="Algeria" />
+      <column name="country_code" value="DZ" />
+    </insert>
+
+    <!-- 7 -->
+    <insert tableName="country">
+      <column name="title" value="Bahamas" />
+      <column name="country_code" value="BS" />
+    </insert>
+
+    <!-- 8 -->
+    <insert tableName="country">
+      <column name="title" value="Bangladesh" />
+      <column name="country_code" value="BD" />
+    </insert>
+
+    <!-- 9 -->
+    <insert tableName="country">
+      <column name="title" value="Barbados" />
+      <column name="country_code" value="BB" />
+    </insert>
+
+    <!-- 10 -->
+    <insert tableName="country">
+      <column name="title" value="Belarus" />
+      <column name="country_code" value="BY" />
+    </insert>
+
+    <!-- 11 -->
+    <insert tableName="country">
+      <column name="title" value="Belgium" />
+      <column name="country_code" value="BE" />
+    </insert>
+
+    <!-- 12 -->
+    <insert tableName="country">
+      <column name="title" value="Bermuda" />
+      <column name="country_code" value="BM" />
+    </insert>
+
+    <!-- 13 -->
+    <insert tableName="country">
+      <column name="title" value="Bulgaria" />
+      <column name="country_code" value="BG" />
+    </insert>
+
+    <!-- 14 -->
+    <insert tableName="country">
+      <column name="title" value="Brazil" />
+      <column name="country_code" value="BR" />
+    </insert>
+
+    <!-- 15 -->
+    <insert tableName="country">
+      <column name="title" value="Burkina Faso" />
+      <column name="country_code" value="BF" />
+    </insert>
+
+    <!-- 16 -->
+    <insert tableName="country">
+      <column name="title" value="Hungary" />
+      <column name="country_code" value="HU" />
+    </insert>
+
+    <!-- 17 -->
+    <insert tableName="country">
+      <column name="title" value="Virgin Islands, British" />
+      <column name="country_code" value="VG" />
+    </insert>
+
+    <!-- 18 -->
+    <insert tableName="country">
+      <column name="title" value="Vietnam" />
+      <column name="country_code" value="VN" />
+    </insert>
+
+    <!-- 19 -->
+    <insert tableName="country">
+      <column name="title" value="Haiti" />
+      <column name="country_code" value="HT" />
+    </insert>
+
+    <!-- 20 -->
+    <insert tableName="country">
+      <column name="title" value="Guadeloupe" />
+      <column name="country_code" value="GP" />
+    </insert>
+
+    <!-- 21 -->
+    <insert tableName="country">
+      <column name="title" value="Germany" />
+      <column name="country_code" value="DE" />
+    </insert>
+
+    <!-- 22 -->
+    <insert tableName="country">
+      <column name="title" value="Grenada" />
+      <column name="country_code" value="GD" />
+    </insert>
+
+    <!-- 23 -->
+    <insert tableName="country">
+      <column name="title" value="Greece" />
+      <column name="country_code" value="GR" />
+    </insert>
+
+    <!-- 24 -->
+    <insert tableName="country">
+      <column name="title" value="Georgia" />
+      <column name="country_code" value="GU" />
+    </insert>
+
+    <!-- 25 -->
+    <insert tableName="country">
+      <column name="title" value="Dominican Republic" />
+      <column name="country_code" value="DO" />
+    </insert>
+
+    <!-- 26 -->
+    <insert tableName="country">
+      <column name="title" value="India" />
+      <column name="country_code" value="IN" />
+    </insert>
+
+    <!-- 27 -->
+    <insert tableName="country">
+      <column name="title" value="Indonesia" />
+      <column name="country_code" value="ID" />
+    </insert>
+
+    <!-- 28 -->
+    <insert tableName="country">
+      <column name="title" value="Iceland" />
+      <column name="country_code" value="IS" />
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

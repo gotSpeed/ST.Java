@@ -1,0 +1,136 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                      http://www.liquibase.org/xml/ns/dbchangelog-ext
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                      http://www.liquibase.org/xml/ns/pro
+                      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.3.xsd">
+
+  <changeSet id="1" author="STJava">
+    <delete tableName="flight" />
+
+    <!-- 1 -->
+    <insert tableName="flight">
+      <column name="created_by" value="1" />
+      <column name="status" value="Scheduled" />
+      <column name="when_registered" value="2020-12-03" />
+      <column name="departure_datetime" value="2021-01-15 7:00" />
+      <column name="arrival_datetime" value="2021-01-15 10:00" />
+      <column name="departure_point" value="1" />
+      <column name="arrival_point" value="5" />
+      <column name="plane" value="4" />
+    </insert>
+
+    <!-- 2 -->
+    <insert tableName="flight">
+      <column name="created_by" value="1" />
+      <column name="status" value="Cancelled" />
+      <column name="when_registered" value="2020-12-03" />
+      <column name="departure_datetime" value="2021-01-13 9:00" />
+      <column name="arrival_datetime" value="2021-01-13 15:00" />
+      <column name="departure_point" value="3" />
+      <column name="arrival_point" value="14" />
+      <column name="plane" value="8" />
+    </insert>
+
+    <!-- 3 -->
+    <insert tableName="flight">
+      <column name="created_by" value="2" />
+      <column name="status" value="Scheduled" />
+      <column name="when_registered" value="2020-12-04" />
+      <column name="departure_datetime" value="2021-01-18 22:00" />
+      <column name="arrival_datetime" value="2021-01-19 3:00" />
+      <column name="departure_point" value="25" />
+      <column name="arrival_point" value="19" />
+      <column name="plane" value="1" />
+    </insert>
+
+    <!-- 4 -->
+    <insert tableName="flight">
+      <column name="created_by" value="3" />
+      <column name="status" value="Landed" />
+      <column name="when_registered" value="2020-12-06" />
+      <column name="departure_datetime" value="2021-01-20 18:00" />
+      <column name="arrival_datetime" value="2021-01-20 22:30" />
+      <column name="departure_point" value="3" />
+      <column name="arrival_point" value="10" />
+      <column name="plane" value="4" />
+    </insert>
+
+    <!-- 5 -->
+    <insert tableName="flight">
+      <column name="created_by" value="3" />
+      <column name="status" value="Scheduled" />
+      <column name="when_registered" value="2020-12-06" />
+      <column name="departure_datetime" value="2021-01-19 7:30" />
+      <column name="arrival_datetime" value="2021-01-19 11:30" />
+      <column name="departure_point" value="9" />
+      <column name="arrival_point" value="13" />
+      <column name="plane" value="2" />
+    </insert>
+
+    <!-- 6 -->
+    <insert tableName="flight">
+      <column name="created_by" value="1" />
+      <column name="status" value="Scheduled" />
+      <column name="when_registered" value="2020-12-07" />
+      <column name="departure_datetime" value="2021-01-22 15:30" />
+      <column name="arrival_datetime" value="2021-01-22 17:00" />
+      <column name="departure_point" value="17" />
+      <column name="arrival_point" value="20" />
+      <column name="plane" value="7" />
+    </insert>
+
+    <!-- 7 -->
+    <insert tableName="flight">
+      <column name="created_by" value="1" />
+      <column name="status" value="Scheduled" />
+      <column name="when_registered" value="2020-12-07" />
+      <column name="departure_datetime" value="2021-01-23 14:30" />
+      <column name="arrival_datetime" value="2021-01-23 17:00" />
+      <column name="departure_point" value="6" />
+      <column name="arrival_point" value="25" />
+      <column name="plane" value="6" />
+    </insert>
+
+    <!-- 8 -->
+    <insert tableName="flight">
+      <column name="created_by" value="2" />
+      <column name="status" value="Landed" />
+      <column name="when_registered" value="2020-12-08" />
+      <column name="departure_datetime" value="2021-01-23 20:00" />
+      <column name="arrival_datetime" value="2021-01-23 00:30" />
+      <column name="departure_point" value="12" />
+      <column name="arrival_point" value="17" />
+      <column name="plane" value="5" />
+    </insert>
+
+    <!-- 9 -->
+    <insert tableName="flight">
+      <column name="created_by" value="2" />
+      <column name="status" value="Scheduled" />
+      <column name="when_registered" value="2020-12-09" />
+      <column name="departure_datetime" value="2021-01-25 17:00" />
+      <column name="arrival_datetime" value="2021-01-25 20:30" />
+      <column name="departure_point" value="23" />
+      <column name="arrival_point" value="9" />
+      <column name="plane" value="4" />
+    </insert>
+
+    <!-- 10 -->
+    <insert tableName="flight">
+      <column name="created_by" value="1" />
+      <column name="status" value="Landed" />
+      <column name="when_registered" value="2020-12-10" />
+      <column name="departure_datetime" value="2021-01-26 23:30" />
+      <column name="arrival_datetime" value="2021-01-27 02:30" />
+      <column name="departure_point" value="16" />
+      <column name="arrival_point" value="4" />
+      <column name="plane" value="1" />
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

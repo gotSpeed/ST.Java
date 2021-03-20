@@ -9,13 +9,28 @@
                       http://www.liquibase.org/xml/ns/pro
                       http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.3.xsd">
 
-  <include file="src/main/resources/changelogs/changelog.cr-table_position.xml" />
-  <include file="src/main/resources/changelogs/changelog.cr-table_person.xml" />
-  <include file="src/main/resources/changelogs/changelog.cr-table_user.xml" />
-  <include file="src/main/resources/changelogs/changelog.cr-table_crew.xml" />
-  <include file="src/main/resources/changelogs/changelog.cr-table_manufacturer.xml" />
-  <include file="src/main/resources/changelogs/changelog.cr-table_plane.xml" />
-  <include file="src/main/resources/changelogs/changelog.cr-table_country.xml" />
-  <include file="src/main/resources/changelogs/changelog.cr-table_flight.xml" />
+  <include file="src/main/resources/changelogs/create-table/changelog.cr-table_position.xml" />
+  <include file="src/main/resources/changelogs/create-table/changelog.cr-table_person.xml" />
+  <include file="src/main/resources/changelogs/create-table/changelog.cr-table_user.xml" />
+  <include file="src/main/resources/changelogs/create-table/changelog.cr-table_crew.xml" />
+  <include file="src/main/resources/changelogs/create-table/changelog.cr-table_manufacturer.xml" />
+  <include file="src/main/resources/changelogs/create-table/changelog.cr-table_plane.xml" />
+  <include file="src/main/resources/changelogs/create-table/changelog.cr-table_country.xml" />
+  <include file="src/main/resources/changelogs/create-table/changelog.cr-table_flight.xml" />
+  <include file="src/main/resources/changelogs/create-table/changelog.cr-table_flightcrew.xml" />
+
+  <include file="src/main/resources/changelogs/alter/changelog.alter-column_crew-id.xml" />
+  <include file="src/main/resources/changelogs/alter/changelog.alter-column_user-password.xml" />
+  <include
+    file="src/main/resources/changelogs/alter/changelog.alter-column_flight-crew_flight.xml" />
+
+  <include file="src/main/resources/changelogs/insert/changelog.set-seed_position.xml" />
+  <include file="src/main/resources/changelogs/insert/changelog.set-seed_manufacturer.xml" />
+  <include file="src/main/resources/changelogs/insert/changelog.set-seed_plane.xml" />
+  <include file="src/main/resources/changelogs/insert/changelog.set-seed_country.xml" />
+  <include file="src/main/resources/changelogs/insert/changelog.set-seed_person.xml" />
+  <include file="src/main/resources/changelogs/insert/changelog.set-seed_user.xml" />
+  <include file="src/main/resources/changelogs/insert/changelog.set-seed_crew.xml" />
+  <include file="src/main/resources/changelogs/insert/changelog.set-seed_flight.xml" />
 
 </databaseChangeLog>

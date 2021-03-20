@@ -1,0 +1,210 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                      http://www.liquibase.org/xml/ns/dbchangelog-ext
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                      http://www.liquibase.org/xml/ns/pro
+                      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.3.xsd">
+
+  <changeSet id="1" author="STJava">
+    <delete tableName="crew" />
+
+    <!-- Pilots -->
+    <!-- 1 -->
+    <insert tableName="crew">
+      <column name="person" value="1" />
+      <column name="rank" value="Captain" />
+      <column name="experience_years" value="13" />
+    </insert>
+
+    <!-- 2 -->
+    <insert tableName="crew">
+      <column name="person" value="2" />
+      <column name="rank" value="Captain" />
+      <column name="experience_years" value="7" />
+    </insert>
+
+    <!-- 3 -->
+    <insert tableName="crew">
+      <column name="person" value="3" />
+      <column name="rank" value="Captain" />
+      <column name="experience_years" value="6" />
+    </insert>
+
+    <!-- 4 -->
+    <insert tableName="crew">
+      <column name="person" value="4" />
+      <column name="rank" value="Senior first officer" />
+      <column name="experience_years" value="3" />
+    </insert>
+
+    <!-- 5 -->
+    <insert tableName="crew">
+      <column name="person" value="5" />
+      <column name="rank" value="Senior first officer" />
+      <column name="experience_years" value="3" />
+    </insert>
+
+    <!-- 6 -->
+    <insert tableName="crew">
+      <column name="person" value="6" />
+      <column name="rank" value="First officer" />
+      <column name="experience_years" value="2" />
+    </insert>
+
+    <!-- 7 -->
+    <insert tableName="crew">
+      <column name="person" value="7" />
+      <column name="rank" value="First officer" />
+      <column name="experience_years" value="3" />
+    </insert>
+
+    <!-- 8 -->
+    <insert tableName="crew">
+      <column name="person" value="8" />
+      <column name="rank" value="Private pilot" />
+      <column name="experience_years" value="1" />
+    </insert>
+
+    <!-- Navigators -->
+    <!-- 9 -->
+    <insert tableName="crew">
+      <column name="person" value="9" />
+      <column name="rank" value="Senior" />
+      <column name="experience_years" value="5" />
+    </insert>
+
+    <!-- 10 -->
+    <insert tableName="crew">
+      <column name="person" value="10" />
+      <column name="rank" value="Senior" />
+      <column name="experience_years" value="7" />
+    </insert>
+
+    <!-- 11 -->
+    <insert tableName="crew">
+      <column name="person" value="11" />
+      <column name="rank" value="Middle" />
+      <column name="experience_years" value="3" />
+    </insert>
+
+    <!-- 12 -->
+    <insert tableName="crew">
+      <column name="person" value="12" />
+      <column name="rank" value="Junior" />
+      <column name="experience_years" value="1" />
+    </insert>
+
+    <!-- Radio operators -->
+    <!-- 13 -->
+    <insert tableName="crew">
+      <column name="person" value="13" />
+      <column name="rank" value="Senior" />
+      <column name="experience_years" value="10" />
+    </insert>
+
+    <!-- 14 -->
+    <insert tableName="crew">
+      <column name="person" value="14" />
+      <column name="rank" value="Senior" />
+      <column name="experience_years" value="8" />
+    </insert>
+
+    <!-- 15 -->
+    <insert tableName="crew">
+      <column name="person" value="15" />
+      <column name="rank" value="Senior" />
+      <column name="experience_years" value="5" />
+    </insert>
+
+    <!-- 16 -->
+    <insert tableName="crew">
+      <column name="person" value="16" />
+      <column name="rank" value="Middle" />
+      <column name="experience_years" value="2" />
+    </insert>
+
+    <!-- Stewardesses -->
+    <!-- 17 -->
+    <insert tableName="crew">
+      <column name="person" value="17" />
+      <column name="rank" value="Flight Stewardess" />
+      <column name="experience_years" value="4" />
+    </insert>
+
+    <!-- 18 -->
+    <insert tableName="crew">
+      <column name="person" value="18" />
+      <column name="rank" value="Flight Stewardess" />
+      <column name="experience_years" value="5" />
+    </insert>
+
+    <!-- 19 -->
+    <insert tableName="crew">
+      <column name="person" value="19" />
+      <column name="rank" value="Leading Stewardess" />
+      <column name="experience_years" value="6" />
+    </insert>
+
+    <!-- 20 -->
+    <insert tableName="crew">
+      <column name="person" value="20" />
+      <column name="rank" value="Leading Stewardess" />
+      <column name="experience_years" value="7" />
+    </insert>
+
+    <!-- 21 -->
+    <insert tableName="crew">
+      <column name="person" value="21" />
+      <column name="rank" value="Chief Stewardess" />
+      <column name="experience_years" value="8" />
+    </insert>
+
+    <!-- 22 -->
+    <insert tableName="crew">
+      <column name="person" value="22" />
+      <column name="rank" value="Chief Stewardess" />
+      <column name="experience_years" value="9" />
+    </insert>
+
+    <!-- 23 -->
+    <insert tableName="crew">
+      <column name="person" value="23" />
+      <column name="rank" value="In-Flight Supervisor" />
+      <column name="experience_years" value="10" />
+    </insert>
+
+    <!-- 24 -->
+    <insert tableName="crew">
+      <column name="person" value="24" />
+      <column name="rank" value="In-Flight Supervisor" />
+      <column name="experience_years" value="11" />
+    </insert>
+
+    <!-- Administrators -->
+    <!-- 25 -->
+    <insert tableName="crew">
+      <column name="person" value="25" />
+      <column name="rank" value="Middle" />
+      <column name="experience_years" value="4" />
+    </insert>
+
+    <!-- 26 -->
+    <insert tableName="crew">
+      <column name="person" value="26" />
+      <column name="rank" value="Senior" />
+      <column name="experience_years" value="7" />
+    </insert>
+
+    <!-- 27 -->
+    <insert tableName="crew">
+      <column name="person" value="27" />
+      <column name="rank" value="Middle" />
+      <column name="experience_years" value="5" />
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>
