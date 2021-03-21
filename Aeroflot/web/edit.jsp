@@ -20,7 +20,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/home.css" />
-    <title>Registered flights</title>
+    <title>Editing #<%= flight.getId() %></title>
   </head>
 
   <body>
@@ -50,9 +50,9 @@
       <div class="content-container">
         <h1>Editing flight #<%= flight.getId() %></h1>
 
-        <form class="edit-flight-form" id="edit_form" method="POST" action="/edit">
+        <form class="edit-flight-form" method="POST" action="/edit">
           <label class="edit-form-label">Arrival point
-            <select name="arrival_point" form="edit_form">
+            <select name="arrival_point">
               <% for (Country item : countries) {
                 if (item.getId() != flight.getArrivalPoint().getId()) { %>
               <option value="<%= item.getId() %>"><%= item.getTitle() %></option>

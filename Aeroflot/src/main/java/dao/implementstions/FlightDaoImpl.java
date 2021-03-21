@@ -12,6 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -123,6 +124,39 @@ public class FlightDaoImpl implements FlightDao {
     @Override
     public void create(Flight obj) {
 
+        try {
+            PreparedStatement query = mConnection.prepareStatement(
+                "INSERT INTO flight (created_by, status, when_registered, " +
+                "departure_datetime, arrival_datetime, departure_point, " +
+                "arrival_point, plane) VALUES " +
+                "(1, 'Scheduled', ?, ?, ?, ?, ?, ?);"
+            );
+
+            Timestamp currentTimestamp = Timestamp.valueOf(
+                ModelsContext.toTimestampFormat(LocalDateTime.now().toString())
+            );
+            Timestamp departureTimestamp = Timestamp.valueOf(
+                ModelsContext.toTimestampFormat(obj.getArrivalDateTime().toString())
+            );
+            Timestamp arrivalTimestamp = Timestamp.valueOf(
+                ModelsContext.toTimestampFormat(obj.getArrivalDateTime().toString())
+            );
+
+            query.setTimestamp(1, currentTimestamp);
+            query.setTimestamp(2, departureTimestamp);
+            query.setTimestamp(3, arrivalTimestamp);
+            query.setShort(4, obj.getDeparturePoint().getId());
+            query.setShort(5, obj.getArrivalPoint().getId());
+            query.setLong(6, obj.getPlane().getId());
+
+            query.executeUpdate();
+
+            mCachedFlightList = null;
+        }
+        catch (SQLException e) {
+            // TODO: logger.
+            e.printStackTrace();
+        }
     }
 
 

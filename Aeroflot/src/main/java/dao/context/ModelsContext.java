@@ -30,10 +30,16 @@ public class ModelsContext {
 
     public static String toTimestampFormat(String localDateTime) {
 
-        String[] dateTime = localDateTime.split("T");
+        String[] dateTime = localDateTime.split("\\.");
+        dateTime = dateTime[0].split("T");
         String ret = String.join(" ", dateTime);
 
-        return ret + ":00";
+        if (ret.matches(".*:.{2}:.{2}")) {
+            return ret;
+        }
+        else {
+            return ret + ":00";
+        }
     }
 
 }

@@ -15,7 +15,7 @@ import java.util.List;
 
 
 
-@WebServlet(name = "HomeServlet", urlPatterns = {"/", "/home"})
+@WebServlet(name = "HomeServlet", urlPatterns = {"", "/home"})
 public class HomeServlet extends HttpServlet {
 
     // TODO: Bean obj here.

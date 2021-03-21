@@ -50,6 +50,9 @@
         <h1>Registered flights</h1>
         <form id="edit_form" style="display: none" method="GET" action="/edit"></form>
 
+        <button class="edit-btn" type="submit" formaction="/new" form="edit_form">
+          New
+        </button>
         <ul class="content-list">
 
           <% for (Flight flight : flights) { %>
