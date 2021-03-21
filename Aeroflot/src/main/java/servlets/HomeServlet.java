@@ -2,6 +2,7 @@ package servlets;
 
 
 import core.models.flightrelated.Flight;
+import dao.implementstions.FlightDaoImpl;
 import dao.interfaces.FlightDao;
 
 import javax.servlet.ServletException;
@@ -18,7 +19,7 @@ import java.util.List;
 public class HomeServlet extends HttpServlet {
 
     // TODO: Bean obj here.
-    private FlightDao mFlightDao;
+    private FlightDao mFlightDao = new FlightDaoImpl();
 
 
 
@@ -31,7 +32,7 @@ public class HomeServlet extends HttpServlet {
         List<Flight> flights = mFlightDao.getAll();
 
         request.setAttribute("flights", flights);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        request.getRequestDispatcher("/home.jsp").forward(request, response);
     }
 
 

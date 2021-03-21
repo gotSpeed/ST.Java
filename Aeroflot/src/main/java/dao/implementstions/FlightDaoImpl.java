@@ -2,13 +2,14 @@ package dao.implementstions;
 
 
 import core.models.flightrelated.Flight;
-import core.predefined.flightstatus.Status;
+import dao.context.ModelsContext;
 import dao.context.PostgresDbContext;
 import dao.interfaces.CountryDao;
 import dao.interfaces.FlightDao;
 import dao.interfaces.PlaneDao;
 import dao.interfaces.UserDao;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -37,10 +38,10 @@ public class FlightDaoImpl implements FlightDao {
                                                       PostgresDbContext.USERNAME,
                                                       PostgresDbContext.PASSWORD);
 
-            mUserDao      = new UserDaoImpl();
-            mPlaneDao     = new PlaneDaoImpl();
-            mCountryDao   = new CountryDaoImpl();
-            mCachedFlight = new Flight();
+            mUserDao    = new UserDaoImpl();
+            mPlaneDao   = new PlaneDaoImpl();
+            mCountryDao = new CountryDaoImpl();
+            //            mCachedFlight = new Flight();
         }
         catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -53,10 +54,10 @@ public class FlightDaoImpl implements FlightDao {
     @Override
     public Flight get(long id) {
 
-        assert mCachedFlight != null : "Cached Flight object is null.";
-        if (mCachedFlight.getId() == id) {
-            return mCachedFlight;
-        }
+        //        assert mCachedFlight != null : "Cached Flight object is null.";
+        //        if (mCachedFlight.getId() == id) {
+        //            return mCachedFlight;
+        //        }
 
         try {
             PreparedStatement query = mConnection.prepareStatement(
@@ -88,13 +89,13 @@ public class FlightDaoImpl implements FlightDao {
     @NotNull
     public List<Flight> getAll() {
 
-        if (mCachedFlightList != null) {
-            return mCachedFlightList;
-        }
+        //        if (mCachedFlightList != null) {
+        //            return mCachedFlightList;
+        //        }
 
         try {
             PreparedStatement query = mConnection.prepareStatement(
-                "SELECT * FROM flight;"
+                "SELECT * FROM flight ORDER BY id;"
             );
 
             ResultSet result = query.executeQuery();
@@ -129,6 +130,30 @@ public class FlightDaoImpl implements FlightDao {
     @Override
     public void update(Flight obj) {
 
+        try {
+            PreparedStatement query = mConnection.prepareStatement(
+                "UPDATE flight " +
+                "SET arrival_point=?, arrival_datetime=?, status=? " +
+                "WHERE id=?;"
+            );
+
+            Timestamp arrivalTimestamp = Timestamp.valueOf(
+                ModelsContext.toTimestampFormat(obj.getArrivalDateTime().toString())
+            );
+
+            query.setShort(1, obj.getArrivalPoint().getId());
+            query.setTimestamp(2, arrivalTimestamp);
+            query.setString(3, obj.getStatus());
+            query.setLong(4, obj.getId());
+
+            query.executeUpdate();
+
+            mCachedFlightList = null;
+        }
+        catch (SQLException e) {
+            // TODO: logger.
+            e.printStackTrace();
+        }
     }
 
 
@@ -140,6 +165,7 @@ public class FlightDaoImpl implements FlightDao {
 
 
 
+    @Nullable
     private Flight parseObject(ResultSet resultSet) {
 
         try {
@@ -149,9 +175,7 @@ public class FlightDaoImpl implements FlightDao {
             obj.setAdministrator(
                 mUserDao.get(resultSet.getLong("created_by"))
             );
-            obj.setStatus(
-                Status.valueOf(resultSet.getString("status"))
-            );
+            obj.setStatus(resultSet.getString("status").toUpperCase());
             obj.setWhenRegisteredDateTime(resultSet.getString("when_registered"));
             obj.setDepartureDateTime(resultSet.getString("departure_datetime"));
             obj.setArrivalDateTime(resultSet.getString("arrival_datetime"));

@@ -11,37 +11,78 @@
 <%@ page import="core.models.transportrelated.Plane" %>
 
 <%
-  List<Plane> flights = (List<Plane>) request.getAttribute("lst");
+  List<Flight> flights = (List<Flight>) request.getAttribute("flights");
 %>
 
-<html>
+<html lang="en">
 
   <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/home.css" />
     <title>Registered flights</title>
   </head>
 
   <body>
-    <div class="content-container">
 
-      <div class="action-bar">
+    <div class="body-container">
 
-        <form method="post">
-          <input name="Register new" type="submit">
-        </form>
+      <header>
+        <nav class="navigation">
+          <ul class="navigation__linklist">
 
-      </div>
+            <li class="linklist__link">
+              <a class="link__text" href="/home">Home</a>
+            </li>
+            <li class="linklist__delimiter"></li>
+            <li class="linklist__link">
+              <a class="link__text" href="/transport">Transport park</a>
+            </li>
+            <li class="linklist__delimiter"></li>
+            <li class="linklist__link">
+              <a class="link__text" href="/staff">Staff</a>
+            </li>
 
-      <div>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="content-container">
+        <h1>Registered flights</h1>
+        <form id="edit_form" style="display: none" method="GET" action="/edit"></form>
+
         <ul class="content-list">
 
-          <% for (Plane obj : flights) { %>
-          <li><%= obj.getModel() %></li>
+          <% for (Flight flight : flights) { %>
+          <li class="content-list__item">
+            <div class="item__block id-block">#<%= flight.getId() %></div>
+            <div class="item__block info-block">
+              <div class="info-block__info">
+                <%= flight.getDeparturePoint().getTitle() %> —
+                <%= flight.getArrivalPoint().getTitle() %>
+              </div>
+              <div class="info-block__info">
+                <%= flight.getDepartureDateTime().toString() %> —
+                <%= flight.getArrivalDateTime().toString() %>
+              </div>
+              <div class="info-block__info"><%= flight.getStatus() %></div>
+            </div>
+            <div class="item__block edit-btn-block">
+              <button class="edit-btn"
+                      type="submit"
+                      name="editable_id"
+                      value="<%= flight.getId() %>"
+                      form="edit_form">Edit
+              </button>
+            </div>
+          </li>
+
           <% } %>
 
         </ul>
       </div>
 
     </div>
+
   </body>
 
 </html>

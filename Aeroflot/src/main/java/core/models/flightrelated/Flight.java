@@ -3,14 +3,12 @@ package core.models.flightrelated;
 
 import core.models.countries.Country;
 import core.models.personrelated.User;
-import core.predefined.flightstatus.Status;
 import core.models.transportrelated.Plane;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
-import static dao.context.ModelsContext.TIMESTAMP_PATTERN;
+import static dao.context.ModelsContext.TIMESTAMP_FORMATTER;
 
 
 
@@ -18,7 +16,7 @@ public class Flight implements Serializable {
 
     protected long          mId = -1;
     protected User          mAdministrator;
-    protected Status        mStatus;
+    protected String        mStatus;
     protected LocalDateTime mWhenRegisteredDateTime;
     protected LocalDateTime mDepartureDateTime;
     protected LocalDateTime mArrivalDateTime;
@@ -57,14 +55,14 @@ public class Flight implements Serializable {
 
 
 
-    public Status getStatus() {
+    public String getStatus() {
 
         return mStatus;
     }
 
 
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
 
         mStatus = status;
     }
@@ -82,7 +80,7 @@ public class Flight implements Serializable {
 
         mWhenRegisteredDateTime = LocalDateTime.parse(
             whenRegisteredDateTime,
-            DateTimeFormatter.ofPattern(TIMESTAMP_PATTERN)
+            TIMESTAMP_FORMATTER
         );
     }
 
@@ -97,9 +95,9 @@ public class Flight implements Serializable {
 
     public void setDepartureDateTime(String departureDateTime) {
 
-        LocalDateTime.parse(
+        mDepartureDateTime = LocalDateTime.parse(
             departureDateTime,
-            DateTimeFormatter.ofPattern(TIMESTAMP_PATTERN)
+            TIMESTAMP_FORMATTER
         );
     }
 
@@ -114,9 +112,9 @@ public class Flight implements Serializable {
 
     public void setArrivalDateTime(String arrivalDateTime) {
 
-        LocalDateTime.parse(
+        mArrivalDateTime = LocalDateTime.parse(
             arrivalDateTime,
-            DateTimeFormatter.ofPattern(TIMESTAMP_PATTERN)
+            TIMESTAMP_FORMATTER
         );
     }
 

@@ -1,0 +1,40 @@
+* {
+  font-size: 16px;
+  box-sizing: border-box;
+  
+  color: #4b678e;
+}
+
+
+body {
+  margin: 0;
+  background-color: #fff4f4;
+}
+
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+
+h1 {
+  margin: 0 auto 2rem;
+  
+  color: #104d60;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+
+form {
+  margin: 0;
+}
+
+
+.body-container {
+  margin: auto;
+  max-width: 900px;
+  
+  background-color: #fff;
+}
