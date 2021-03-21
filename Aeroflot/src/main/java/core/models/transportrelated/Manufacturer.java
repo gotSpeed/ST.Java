@@ -1,9 +1,10 @@
-package core.transportrelated;
+package core.models.transportrelated;
+
 
 
 public class Manufacturer {
 
-    protected int    mId;
+    protected int    mId    = -1;
     protected String mTitle = "UNKNOWN";
 
 

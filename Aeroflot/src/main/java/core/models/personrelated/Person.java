@@ -1,21 +1,24 @@
-package core.personrelated;
+package core.models.personrelated;
 
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import static dao.context.ModelsContext.DATE_PATTERN;
 
 
 
 public class Person {
 
-    protected long     mId;
-    protected String   mName;
-    protected String   mSurname;
-    protected short    mAge;
-    protected Date     mBirthDate;
-    protected char     mSex;
-    protected String   mPassportIdentifier;
-    protected Date     mIssueDate;
-    protected Position mPosition;
+    protected long      mId = -1;
+    protected String    mName;
+    protected String    mSurname;
+    protected short     mAge;
+    protected LocalDate mBirthDate;
+    protected String    mSex;
+    protected String    mPassportIdentifier;
+    protected LocalDate mIssueDate;
+    protected Position  mPosition;
 
 
 
@@ -81,30 +84,33 @@ public class Person {
 
 
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
 
         return mBirthDate;
     }
 
 
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
 
-        mBirthDate = birthDate;
+        mBirthDate = LocalDate.parse(
+            birthDate,
+            DateTimeFormatter.ofPattern(DATE_PATTERN)
+        );
     }
 
 
 
-    public char getSex() {
+    public String getSex() {
 
         return mSex;
     }
 
 
 
-    public void setSex(char sex) {
+    public void setSex(String sex) {
 
-        mSex = Character.toUpperCase(sex);
+        mSex = sex.toUpperCase().substring(0, 1);
     }
 
 
@@ -123,16 +129,19 @@ public class Person {
 
 
 
-    public Date getIssueDate() {
+    public LocalDate getIssueDate() {
 
         return mIssueDate;
     }
 
 
 
-    public void setIssueDate(Date issueDate) {
+    public void setIssueDate(String issueDate) {
 
-        mIssueDate = issueDate;
+        mIssueDate = LocalDate.parse(
+            issueDate,
+            DateTimeFormatter.ofPattern(DATE_PATTERN)
+        );
     }
 
 

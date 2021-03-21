@@ -1,7 +1,7 @@
 package servlets;
 
 
-import core.flightrelated.Flight;
+import core.models.flightrelated.Flight;
 import dao.interfaces.FlightDao;
 
 import javax.servlet.ServletException;
@@ -17,7 +17,7 @@ import java.util.List;
 @WebServlet(name = "HomeServlet", urlPatterns = {"/", "/home"})
 public class HomeServlet extends HttpServlet {
 
-    //TODO: Bean obj here.
+    // TODO: Bean obj here.
     private FlightDao mFlightDao;
 
 
@@ -27,10 +27,11 @@ public class HomeServlet extends HttpServlet {
                                                                                    ServletException,
                                                                                    IOException {
 
+
         List<Flight> flights = mFlightDao.getAll();
 
         request.setAttribute("flights", flights);
-        request.getRequestDispatcher("/home.jsp").forward(request, response);
+        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
 

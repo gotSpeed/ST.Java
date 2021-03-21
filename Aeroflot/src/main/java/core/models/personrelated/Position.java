@@ -1,9 +1,9 @@
-package core.personrelated;
+package core.models.personrelated;
 
 
 public class Position {
 
-    protected short  mId;
+    protected short  mId = -1;
     protected String mTitle;
 
 

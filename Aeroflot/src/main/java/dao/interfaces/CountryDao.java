@@ -1,7 +1,9 @@
 package dao.interfaces;
 
 
-import core.countries.Country;
+import core.models.countries.Country;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -9,9 +11,11 @@ import java.util.List;
 
 public interface CountryDao {
 
+    @Nullable
     Country get(long id);
 
-    List<Country> get();
+    @NotNull
+    List<Country> getAll();
 
     void create(Country obj);
 

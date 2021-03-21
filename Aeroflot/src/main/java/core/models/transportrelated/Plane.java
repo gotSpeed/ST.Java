@@ -1,20 +1,23 @@
-package core.transportrelated;
+package core.models.transportrelated;
 
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import static dao.context.ModelsContext.DATE_PATTERN;
 
 
 
 public class Plane {
 
-    protected long          mId;
-    protected String        mTitle;
-    protected String        mModel;
-    protected Manufacturer  mManufacturer;
-    protected LocalDateTime mManufactureDate;
-    protected short         mFlightsAmount;
-    protected short         mSeatsCount;
-    protected short         mMaxFlightDistance;
+    protected long         mId = -1;
+    protected String       mTitle;
+    protected String       mModel;
+    protected Manufacturer mManufacturer;
+    protected LocalDate    mManufactureDate;
+    protected short        mFlightsAmount;
+    protected short        mSeatsCount;
+    protected short        mMaxFlightDistance;
 
 
 
@@ -75,16 +78,19 @@ public class Plane {
 
 
 
-    public LocalDateTime getManufactureDate() {
+    public LocalDate getManufactureDate() {
 
         return mManufactureDate;
     }
 
 
 
-    public void setManufactureDate(LocalDateTime manufactureDate) {
+    public void setManufactureDate(String manufactureDate) {
 
-        mManufactureDate = manufactureDate;
+        mManufactureDate = LocalDate.parse(
+            manufactureDate,
+            DateTimeFormatter.ofPattern(DATE_PATTERN)
+        );
     }
 
 

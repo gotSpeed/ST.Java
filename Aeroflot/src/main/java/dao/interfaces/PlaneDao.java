@@ -1,7 +1,9 @@
 package dao.interfaces;
 
 
-import core.transportrelated.Plane;
+import core.models.transportrelated.Plane;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -9,9 +11,11 @@ import java.util.List;
 
 public interface PlaneDao {
 
+    @Nullable
     Plane get(long id);
 
-    List<Plane> get();
+    @NotNull
+    List<Plane> getAll();
 
     void create(Plane obj);
 

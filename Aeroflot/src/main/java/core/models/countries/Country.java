@@ -1,9 +1,9 @@
-package core.countries;
+package core.models.countries;
 
 
 public class Country {
 
-    protected short  mId;
+    protected short  mId = -1;
     protected String mTitle;
     protected String mCountryCode;
 

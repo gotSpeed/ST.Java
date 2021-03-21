@@ -6,11 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="core.flightrelated.Flight" %>
+<%@ page import="core.models.flightrelated.Flight" %>
 <%@ page import="java.util.List" %>
+<%@ page import="core.models.transportrelated.Plane" %>
 
 <%
-  List<Flight> flights = (List<Flight>) request.getAttribute("flights");
+  List<Plane> flights = (List<Plane>) request.getAttribute("lst");
 %>
 
 <html>
@@ -33,8 +34,8 @@
       <div>
         <ul class="content-list">
 
-          <% for (Flight obj : flights) { %>
-          <li><%= obj.getStatus() %></li>
+          <% for (Plane obj : flights) { %>
+          <li><%= obj.getModel() %></li>
           <% } %>
 
         </ul>

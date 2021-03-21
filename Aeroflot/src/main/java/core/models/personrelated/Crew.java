@@ -1,9 +1,9 @@
-package core.personrelated;
+package core.models.personrelated;
 
 
 public class Crew {
 
-    protected long   mId;
+    protected long   mId = -1;
     protected Person mPerson;
     protected String mRank;
     protected short  mExperienceYears;

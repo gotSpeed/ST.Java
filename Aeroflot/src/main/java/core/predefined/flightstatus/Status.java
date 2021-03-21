@@ -5,6 +5,7 @@ public enum Status {
 
     SCHEDULED,
     CANCELLED,
-    LANDED
+    LANDED,
+    UNDEFINED
 
 }

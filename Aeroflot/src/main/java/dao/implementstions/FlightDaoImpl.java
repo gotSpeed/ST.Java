@@ -1,7 +1,7 @@
 package dao.implementstions;
 
 
-import core.flightrelated.Flight;
+import core.models.flightrelated.Flight;
 import core.predefined.flightstatus.Status;
 import dao.context.PostgresDbContext;
 import dao.interfaces.CountryDao;
@@ -18,27 +18,29 @@ import java.util.List;
 
 public class FlightDaoImpl implements FlightDao {
 
+    // TODO: Bean here.
     private Connection mConnection;
+
+    // TODO: Beans here.
     private UserDao    mUserDao;
     private PlaneDao   mPlaneDao;
     private CountryDao mCountryDao;
 
-    private PreparedStatement mSelectAllQuery;
-
-    private List<Flight> mFlights;
-
+    private List<Flight> mCachedFlightList;
+    private Flight       mCachedFlight;
 
 
-    // TODO: patch with Bean.
-    /*init*/ {
+
+    {
         try {
             mConnection = DriverManager.getConnection(PostgresDbContext.URL,
                                                       PostgresDbContext.USERNAME,
                                                       PostgresDbContext.PASSWORD);
 
-            mSelectAllQuery = mConnection.prepareStatement(
-                "SELECT * FROM flight;"
-            );
+            mUserDao      = new UserDaoImpl();
+            mPlaneDao     = new PlaneDaoImpl();
+            mCountryDao   = new CountryDaoImpl();
+            mCachedFlight = new Flight();
         }
         catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -51,7 +53,33 @@ public class FlightDaoImpl implements FlightDao {
     @Override
     public Flight get(long id) {
 
-        return null;
+        assert mCachedFlight != null : "Cached Flight object is null.";
+        if (mCachedFlight.getId() == id) {
+            return mCachedFlight;
+        }
+
+        try {
+            PreparedStatement query = mConnection.prepareStatement(
+                "SELECT * FROM flight WHERE id=?;"
+            );
+
+            query.setLong(1, id);
+
+            ResultSet result = query.executeQuery();
+            if (result.next()) {
+                mCachedFlight = parseObject(result);
+                return mCachedFlight;
+            }
+            else {
+                return null;
+            }
+        }
+        catch (SQLException e) {
+            // TODO: logger.
+            e.printStackTrace();
+
+            return null;
+        }
     }
 
 
@@ -60,30 +88,29 @@ public class FlightDaoImpl implements FlightDao {
     @NotNull
     public List<Flight> getAll() {
 
-        // Cached.
-        if (mFlights != null) {
-            return mFlights;
+        if (mCachedFlightList != null) {
+            return mCachedFlightList;
         }
 
         try {
-            ResultSet result = mSelectAllQuery.executeQuery();
+            PreparedStatement query = mConnection.prepareStatement(
+                "SELECT * FROM flight;"
+            );
 
-            mFlights = new ArrayList<>();
+            ResultSet result = query.executeQuery();
+            mCachedFlightList = new ArrayList<>();
 
-            Flight tmp;
             while (result.next()) {
-                tmp = parseObject(result);
-
-                if (tmp != null) {
-                    mFlights.add(tmp);
+                Flight flight = parseObject(result);
+                if (flight != null) {
+                    mCachedFlightList.add(flight);
                 }
             }
 
-            return mFlights;
+            return mCachedFlightList;
         }
         catch (SQLException e) {
-            // TODO: there could be a normal logger.
-            System.out.println(e.getMessage());
+            // TODO: logger.
             e.printStackTrace();
 
             return new ArrayList<>(0);
@@ -142,7 +169,6 @@ public class FlightDaoImpl implements FlightDao {
         }
         catch (SQLException e) {
             // TODO: there could be a normal logger.
-            System.out.println(e.getMessage());
             e.printStackTrace();
 
             return null;

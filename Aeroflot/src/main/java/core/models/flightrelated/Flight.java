@@ -1,10 +1,10 @@
-package core.flightrelated;
+package core.models.flightrelated;
 
 
-import core.countries.Country;
-import core.personrelated.User;
+import core.models.countries.Country;
+import core.models.personrelated.User;
 import core.predefined.flightstatus.Status;
-import core.transportrelated.Plane;
+import core.models.transportrelated.Plane;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -16,7 +16,7 @@ import static dao.context.ModelsContext.TIMESTAMP_PATTERN;
 
 public class Flight implements Serializable {
 
-    protected long          mId;
+    protected long          mId = -1;
     protected User          mAdministrator;
     protected Status        mStatus;
     protected LocalDateTime mWhenRegisteredDateTime;

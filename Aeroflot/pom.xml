@@ -16,17 +16,24 @@
 
   <dependencies>
     <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-    <dependency>
-      <groupId>org.postgresql</groupId>
-      <artifactId>postgresql</artifactId>
-      <version>42.2.19</version>
-    </dependency>
+    <!--<dependency>-->
+    <!--  <groupId>org.postgresql</groupId>-->
+    <!--  <artifactId>postgresql</artifactId>-->
+    <!--  <version>42.2.19</version>-->
+    <!--</dependency>-->
 
     <!-- https://mvnrepository.com/artifact/org.jetbrains/annotations -->
     <dependency>
       <groupId>org.jetbrains</groupId>
       <artifactId>annotations</artifactId>
       <version>20.1.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.18</version>
     </dependency>
 
   </dependencies>

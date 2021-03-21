@@ -1,7 +1,9 @@
 package dao.interfaces;
 
 
-import core.personrelated.User;
+import core.models.personrelated.User;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -9,9 +11,11 @@ import java.util.List;
 
 public interface UserDao {
 
+    @Nullable
     User get(long id);
 
-    List<User> get();
+    @NotNull
+    List<User> getAll();
 
     void create(User obj);
 

@@ -1,9 +1,9 @@
-package core.personrelated;
+package core.models.personrelated;
 
 
 public class User {
 
-    protected long   mId;
+    protected long   mId = -1;
     protected String mUsername;
     protected String mPassword;
     protected Person mPerson;
