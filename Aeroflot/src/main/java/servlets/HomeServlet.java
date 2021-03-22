@@ -4,6 +4,7 @@ package servlets;
 import core.models.flightrelated.Flight;
 import dao.implementstions.FlightDaoImpl;
 import dao.interfaces.FlightDao;
+import services.Authentication;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,28 +29,15 @@ public class HomeServlet extends HttpServlet {
                                                                                    ServletException,
                                                                                    IOException {
 
+        if (Authentication.checkIfAuthenticated(request) != null) {
+            List<Flight> flights = mFlightDao.getAll();
 
-        List<Flight> flights = mFlightDao.getAll();
-
-        request.setAttribute("flights", flights);
-        request.getRequestDispatcher("/home.jsp").forward(request, response);
-    }
-
-
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
-                                                                            ServletException,
-                                                                            IOException {
-
-        super.doPost(req, resp);
-    }
-
-
-
-    public void setFlightDao(FlightDao flightDao) {
-
-        mFlightDao = flightDao;
+            request.setAttribute("flights", flights);
+            request.getRequestDispatcher("/home.jsp").forward(request, response);
+        }
+        else {
+            response.sendRedirect("/auth");
+        }
     }
 
 }

@@ -21,8 +21,8 @@ import java.util.List;
 
 
 
-@WebServlet(name = "RegisterServlet", urlPatterns = "/new")
-public class RegisterServlet extends HttpServlet {
+@WebServlet(name = "CreateServlet", urlPatterns = "/new")
+public class CreateServlet extends HttpServlet {
 
     private CountryDao mCountryDao = new CountryDaoImpl();
     private PlaneDao   mPlaneDao   = new PlaneDaoImpl();

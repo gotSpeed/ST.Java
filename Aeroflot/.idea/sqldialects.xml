@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/dao/implementstions/PersonDaoImpl.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/dao/implementstions/PlaneDaoImpl.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/dao/implementstions/PositionDaoImpl.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/dao/implementstions/SessionDaoImpl.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/dao/implementstions/UserDaoImpl.java" dialect="PostgreSQL" />
   </component>
 </project>

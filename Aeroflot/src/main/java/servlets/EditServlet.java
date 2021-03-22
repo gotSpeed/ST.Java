@@ -8,6 +8,7 @@ import dao.implementstions.CountryDaoImpl;
 import dao.implementstions.FlightDaoImpl;
 import dao.interfaces.CountryDao;
 import dao.interfaces.FlightDao;
+import services.Authentication;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,40 +36,51 @@ public class EditServlet extends HttpServlet {
                                                                                    ServletException,
                                                                                    IOException {
 
-        long editableId = Long.parseLong(request.getParameter("editable_id"));
-        mEditableFlight = mFlightDao.get(editableId);
-        List<Country> countries = mCountryDao.getAll();
+        if (Authentication.checkIfAuthenticated(request) != null) {
 
-        request.setAttribute("flight", mEditableFlight);
-        request.setAttribute("countries", countries);
-        request.getRequestDispatcher("/edit.jsp").forward(request, response);
+            long editableId = Long.parseLong(request.getParameter("editable_id"));
+            mEditableFlight = mFlightDao.get(editableId);
+            List<Country> countries = mCountryDao.getAll();
+
+            request.setAttribute("flight", mEditableFlight);
+            request.setAttribute("countries", countries);
+            request.getRequestDispatcher("/edit.jsp").forward(request, response);
+        }
+        else {
+            response.sendRedirect("/auth");
+        }
     }
 
 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
-                                                                                    ServletException,
                                                                                     IOException {
 
-        short country_id = Short.parseShort(request.getParameter("arrival_point"));
-        if (country_id != mEditableFlight.getArrivalPoint().getId()) {
-            mEditableFlight.setArrivalPoint(
-                mCountryDao.get(country_id)
+        if (Authentication.checkIfAuthenticated(request) != null) {
+
+            short country_id = Short.parseShort(request.getParameter("arrival_point"));
+            if (country_id != mEditableFlight.getArrivalPoint().getId()) {
+                mEditableFlight.setArrivalPoint(
+                    mCountryDao.get(country_id)
+                );
+            }
+
+            mEditableFlight.setArrivalDateTime(
+                ModelsContext.toTimestampFormat(request.getParameter("arrival_datetime"))
             );
+
+            mEditableFlight.setStatus(
+                request.getParameter("status")
+            );
+
+            mFlightDao.update(mEditableFlight);
+
+            response.sendRedirect("/home");
         }
-
-        mEditableFlight.setArrivalDateTime(
-            ModelsContext.toTimestampFormat(request.getParameter("arrival_datetime"))
-        );
-
-        mEditableFlight.setStatus(
-            request.getParameter("status")
-        );
-
-        mFlightDao.update(mEditableFlight);
-
-        response.sendRedirect("/home");
+        else {
+            response.sendRedirect("/auth");
+        }
     }
 
 }

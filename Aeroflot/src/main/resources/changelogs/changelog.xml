@@ -18,9 +18,12 @@
   <include file="src/main/resources/changelogs/create-table/changelog.cr-table_country.xml" />
   <include file="src/main/resources/changelogs/create-table/changelog.cr-table_flight.xml" />
   <include file="src/main/resources/changelogs/create-table/changelog.cr-table_flightcrew.xml" />
+  <include file="src/main/resources/changelogs/create-table/changelog.cr-table_session.xml" />
 
   <include file="src/main/resources/changelogs/alter/changelog.alter-column_crew-id.xml" />
   <include file="src/main/resources/changelogs/alter/changelog.alter-column_user-password.xml" />
+  <include file="src/main/resources/changelogs/alter/changelog.alter-column_user-username.xml" />
+  <include file="src/main/resources/changelogs/alter/changelog.add-column_session-timeout.xml" />
   <include
     file="src/main/resources/changelogs/alter/changelog.alter-column_flight-crew_flight.xml" />
 
