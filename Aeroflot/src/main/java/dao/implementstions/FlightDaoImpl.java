@@ -28,8 +28,8 @@ public class FlightDaoImpl implements FlightDao {
     private PlaneDao   mPlaneDao;
     private CountryDao mCountryDao;
 
-    private List<Flight> mCachedFlightList;
-    private Flight       mCachedFlight;
+    private static List<Flight> mCachedFlightList;
+    private static Flight       mCachedFlight;
 
 
 
@@ -39,10 +39,10 @@ public class FlightDaoImpl implements FlightDao {
                                                       PostgresDbContext.USERNAME,
                                                       PostgresDbContext.PASSWORD);
 
-            mUserDao    = new UserDaoImpl();
-            mPlaneDao   = new PlaneDaoImpl();
-            mCountryDao = new CountryDaoImpl();
-            //            mCachedFlight = new Flight();
+            mUserDao      = new UserDaoImpl();
+            mPlaneDao     = new PlaneDaoImpl();
+            mCountryDao   = new CountryDaoImpl();
+            mCachedFlight = new Flight();
         }
         catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -53,12 +53,12 @@ public class FlightDaoImpl implements FlightDao {
 
 
     @Override
-    public Flight get(long id) {
+    public synchronized Flight get(long id) {
 
-        //        assert mCachedFlight != null : "Cached Flight object is null.";
-        //        if (mCachedFlight.getId() == id) {
-        //            return mCachedFlight;
-        //        }
+        assert mCachedFlight != null : "Cached Flight object is null.";
+        if (mCachedFlight.getId() == id) {
+            return mCachedFlight;
+        }
 
         try {
             PreparedStatement query = mConnection.prepareStatement(
@@ -88,11 +88,11 @@ public class FlightDaoImpl implements FlightDao {
 
     @Override
     @NotNull
-    public List<Flight> getAll() {
+    public synchronized List<Flight> getAll() {
 
-        //        if (mCachedFlightList != null) {
-        //            return mCachedFlightList;
-        //        }
+        if (mCachedFlightList != null) {
+            return mCachedFlightList;
+        }
 
         try {
             PreparedStatement query = mConnection.prepareStatement(
@@ -122,14 +122,14 @@ public class FlightDaoImpl implements FlightDao {
 
 
     @Override
-    public void create(Flight obj) {
+    public synchronized void create(Flight obj) {
 
         try {
             PreparedStatement query = mConnection.prepareStatement(
                 "INSERT INTO flight (created_by, status, when_registered, " +
                 "departure_datetime, arrival_datetime, departure_point, " +
-                "arrival_point, plane) VALUES " +
-                "(?, 'Scheduled', ?, ?, ?, ?, ?, ?);"
+                "arrival_point, plane) " +
+                "VALUES (?, 'SCHEDULED', ?, ?, ?, ?, ?, ?);"
             );
 
             Timestamp currentTimestamp = Timestamp.valueOf(
@@ -152,6 +152,9 @@ public class FlightDaoImpl implements FlightDao {
 
             query.executeUpdate();
 
+            if (obj.getId() == mCachedFlight.getId()) {
+                mCachedFlight = new Flight();
+            }
             mCachedFlightList = null;
         }
         catch (SQLException e) {
@@ -163,7 +166,7 @@ public class FlightDaoImpl implements FlightDao {
 
 
     @Override
-    public void update(Flight obj) {
+    public synchronized void update(Flight obj) {
 
         try {
             PreparedStatement query = mConnection.prepareStatement(
@@ -183,6 +186,9 @@ public class FlightDaoImpl implements FlightDao {
 
             query.executeUpdate();
 
+            if (obj.getId() == mCachedFlight.getId()) {
+                mCachedFlight = new Flight();
+            }
             mCachedFlightList = null;
         }
         catch (SQLException e) {
@@ -194,7 +200,7 @@ public class FlightDaoImpl implements FlightDao {
 
 
     @Override
-    public void delete(Flight obj) {
+    public synchronized void delete(Flight obj) {
 
     }
 

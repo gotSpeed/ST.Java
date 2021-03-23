@@ -13,11 +13,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 
 @WebServlet(name = "HomeServlet", urlPatterns = {"", "/home"})
 public class HomeServlet extends HttpServlet {
+
+    private static final int DEFAULT_PAGE_CAPACITY = 10;
 
     // TODO: Bean obj here.
     private FlightDao mFlightDao = new FlightDaoImpl();
@@ -30,9 +33,26 @@ public class HomeServlet extends HttpServlet {
                                                                                    IOException {
 
         if (Authentication.checkIfAuthenticated(request) != null) {
+
+            int page = 1;
+            String pageParam = request.getParameter("page");
+
+            if (pageParam != null) {
+                page = Integer.parseInt(pageParam);
+            }
+
             List<Flight> flights = mFlightDao.getAll();
 
+            int pagesCount = (int) Math.ceil(flights.size() / 10.0);
+
+            flights = flights.stream()
+                             .skip(DEFAULT_PAGE_CAPACITY * (page - 1))
+                             .limit(DEFAULT_PAGE_CAPACITY)
+                             .collect(Collectors.toList());
+
             request.setAttribute("flights", flights);
+            request.setAttribute("page", page);
+            request.setAttribute("pagesCount", pagesCount);
             request.getRequestDispatcher("/home.jsp").forward(request, response);
         }
         else {

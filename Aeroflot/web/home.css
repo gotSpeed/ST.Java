@@ -10,17 +10,17 @@
 .content-list__item {
   display: flex;
   padding: 5px 10px;
-  
+
   border: 0.5px solid #e0e0e0;
   border-radius: 10px;
-  
+
   align-items: center;
 }
 
 
 .item__block {
   flex: 1 1 auto;
-  
+
   text-align: center;
 }
 
@@ -39,11 +39,11 @@
 
 .edit-btn {
   padding: 3px 15px;
-  
+
   color: #fff;
-  
+
   background-color: #f45d6e;
-  
+
   border-radius: 5px;
   border-top-color: #f45d6e;
   border-left-color: #f45d6e;
@@ -59,4 +59,28 @@
 
 .info-block__info {
   flex: 1 1 auto;
+}
+
+
+.pages-nav-bar {
+  margin: 30px 0 50px;
+  display: flex;
+
+  justify-content: center;
+}
+
+
+.pages-nav-bar__link {
+  flex: 0 0 auto;
+}
+
+
+.link-inactive {
+  color: #e0e0e0;
+}
+
+
+.pages-nav-bar__page {
+  flex: 0 0 auto;
+  margin: 0 15px;
 }
