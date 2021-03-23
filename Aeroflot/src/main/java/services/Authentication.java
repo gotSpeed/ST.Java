@@ -20,7 +20,7 @@ import java.util.Optional;
 // Dummy impl.
 public class Authentication {
 
-    private static final long DEFAULT_SESSION_TIMEOUT = 10 * 60 * 1000;
+    private static final long DEFAULT_SESSION_TIMEOUT = 10 * 60 * 1000; // 10 minutes.
 
     // TODO: Bean here.
     private static UserDao    mUserDao    = new UserDaoImpl();
@@ -42,6 +42,7 @@ public class Authentication {
             ret.get().getPassword().equals(password)) {
 
             HttpSession httpSession = request.getSession();
+            httpSession.setMaxInactiveInterval(-1);
 
             Session newSession = new Session();
             newSession.setId(httpSession.getId());

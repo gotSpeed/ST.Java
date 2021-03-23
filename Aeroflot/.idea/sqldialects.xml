@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/main/java/dao/context/PostgresDbContext.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/dao/implementstions/CountryDaoImpl.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/dao/implementstions/CrewDaoImpl.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/dao/implementstions/FlightCrewDaoImpl.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/dao/implementstions/FlightDaoImpl.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/dao/implementstions/ManufacturerDaoImpl.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/dao/implementstions/PersonDaoImpl.java" dialect="PostgreSQL" />

@@ -69,7 +69,7 @@ public class FlightDaoImpl implements FlightDao {
 
             ResultSet result = query.executeQuery();
             if (result.next()) {
-                mCachedFlight = parseObject(result);
+                mCachedFlight = parseToObject(result);
                 return mCachedFlight;
             }
             else {
@@ -103,7 +103,7 @@ public class FlightDaoImpl implements FlightDao {
             mCachedFlightList = new ArrayList<>();
 
             while (result.next()) {
-                Flight flight = parseObject(result);
+                Flight flight = parseToObject(result);
                 if (flight != null) {
                     mCachedFlightList.add(flight);
                 }
@@ -129,7 +129,7 @@ public class FlightDaoImpl implements FlightDao {
                 "INSERT INTO flight (created_by, status, when_registered, " +
                 "departure_datetime, arrival_datetime, departure_point, " +
                 "arrival_point, plane) VALUES " +
-                "(1, 'Scheduled', ?, ?, ?, ?, ?, ?);"
+                "(?, 'Scheduled', ?, ?, ?, ?, ?, ?);"
             );
 
             Timestamp currentTimestamp = Timestamp.valueOf(
@@ -142,12 +142,13 @@ public class FlightDaoImpl implements FlightDao {
                 ModelsContext.toTimestampFormat(obj.getArrivalDateTime().toString())
             );
 
-            query.setTimestamp(1, currentTimestamp);
-            query.setTimestamp(2, departureTimestamp);
-            query.setTimestamp(3, arrivalTimestamp);
-            query.setShort(4, obj.getDeparturePoint().getId());
-            query.setShort(5, obj.getArrivalPoint().getId());
-            query.setLong(6, obj.getPlane().getId());
+            query.setLong(1, obj.getAdministrator().getId());
+            query.setTimestamp(2, currentTimestamp);
+            query.setTimestamp(3, departureTimestamp);
+            query.setTimestamp(4, arrivalTimestamp);
+            query.setShort(5, obj.getDeparturePoint().getId());
+            query.setShort(6, obj.getArrivalPoint().getId());
+            query.setLong(7, obj.getPlane().getId());
 
             query.executeUpdate();
 
@@ -200,7 +201,7 @@ public class FlightDaoImpl implements FlightDao {
 
 
     @Nullable
-    private Flight parseObject(ResultSet resultSet) {
+    private Flight parseToObject(ResultSet resultSet) {
 
         try {
             Flight obj = new Flight();
@@ -226,7 +227,7 @@ public class FlightDaoImpl implements FlightDao {
             return obj;
         }
         catch (SQLException e) {
-            // TODO: there could be a normal logger.
+            // TODO: logger.
             e.printStackTrace();
 
             return null;
