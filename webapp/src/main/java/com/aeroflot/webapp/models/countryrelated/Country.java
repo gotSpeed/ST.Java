@@ -11,10 +11,9 @@ import javax.persistence.Id;
 @Entity
 public class Country {
 
-    @Id
     @GeneratedValue
     @Column(name = "id")
-    protected short mId;
+    protected short id;
 
     @Column(name = "title")
     protected String mTitle;
@@ -23,18 +22,26 @@ public class Country {
     protected String mCountryCode;
 
 
+    public Country() {}
+
+    public Country(final short id) {
+        this.id = id;
+    }
+
+
 
     // region getters/setters
+    @Id
     public short getId() {
 
-        return mId;
+        return id;
     }
 
 
 
     public void setId(short id) {
 
-        mId = id < 1 ? -1 : id;
+        this.id = id < 1 ? -1 : id;
     }
 
 

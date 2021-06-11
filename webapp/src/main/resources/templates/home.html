@@ -6,6 +6,9 @@
   <link rel="stylesheet" type="text/css" th:href="@{/shared.css}" />
   <link rel="stylesheet" type="text/css" th:href="@{/header.css}" />
   <link rel="stylesheet" type="text/css" th:href="@{/home.css}" />
+  <link rel="stylesheet" type="text/css" href="../static/shared.css"/>
+  <link rel="stylesheet" type="text/css" href="../static/header.css"/>
+  <link rel="stylesheet" type="text/css" href="../static/home.css"/>
   <title>Registered flights</title>
 </head>
 
@@ -27,7 +30,7 @@
             <a class="nav-link__text" href="#">Transport park</a>
           </li>
 
-          <br class="nav-list-delim" />
+          <hr class="nav-list-delim" />
 
           <li class="nav-link">
             <a class="nav-link__text" href="#">Staff</a>
@@ -42,9 +45,9 @@
 
       <button class="default-btn">New</button>
 
-      <ul class="content-list" th:each="flight, _ : ${allFlights}">
+      <ul class="content-list">
 
-        <li class="content-list__item">
+        <li th:each="flight, _ : ${allFlights}" class="content-list__item">
           <div class="item-id-block" th:text="${flight.getId()}"></div>
 
           <div class="info-block__info"

@@ -17,7 +17,7 @@ public class HomeController {
     private IFlightRepository mFlightRepository;
 
     @GetMapping("/")
-    public String Home(Model model) {
+    public String home(Model model) {
 
         Iterable<Flight> flights = mFlightRepository.findAllByOrderByIdAsc();
 

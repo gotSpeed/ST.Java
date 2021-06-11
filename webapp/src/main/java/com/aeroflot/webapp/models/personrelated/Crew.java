@@ -1,26 +1,46 @@
 package com.aeroflot.webapp.models.personrelated;
 
 
+import javax.persistence.*;
+
+
+
+@Entity
 public class Crew {
 
-    protected long   mId = -1;
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    protected long id;
+
+    @OneToOne(
+      fetch = FetchType.EAGER
+    )
+    @JoinColumn(
+      name = "person",
+      referencedColumnName = "id"
+    )
     protected Person mPerson;
+
+    @Column(name = "rank")
     protected String mRank;
-    protected short  mExperienceYears;
+
+    @Column(name = "experience_years")
+    protected short mExperienceYears;
 
 
 
     // region getters/setters
     public long getId() {
 
-        return mId;
+        return id;
     }
 
 
 
     public void setId(long id) {
 
-        mId = id < 1 ? -1 : id;
+        this.id = id < 1 ? -1 : id;
     }
 
 

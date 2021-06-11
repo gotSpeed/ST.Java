@@ -17,17 +17,34 @@ public class Person {
     @Column(name = "id")
     protected long mId;
 
-    protected String    mName;
-    protected String    mSurname;
-    protected short     mAge;
+    @Column(name = "name")
+    protected String mName;
+
+    @Column(name = "surname")
+    protected String mSurname;
+
+    @Column(name = "age")
+    protected short mAge;
+
+    @Column(name = "birth_date")
     protected LocalDate mBirthDate;
-    protected String    mSex;
-    protected String    mPassportIdentifier;
+
+    @Column(name = "sex")
+    protected String mSex;
+
+    @Column(name = "passport_identifier")
+    protected String mPassportIdentifier;
+
+    @Column(name = "issue_date")
     protected LocalDate mIssueDate;
 
     @ManyToOne(
       optional = false,
       targetEntity = Position.class
+    )
+    @JoinColumn(
+      name = "position",
+      referencedColumnName = "id"
     )
     protected Position mPosition;
 

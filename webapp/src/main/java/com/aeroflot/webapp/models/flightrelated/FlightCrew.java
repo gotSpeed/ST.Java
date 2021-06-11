@@ -2,14 +2,35 @@ package com.aeroflot.webapp.models.flightrelated;
 
 
 
+import com.aeroflot.webapp.models.flightrelated.embedded.FlightCrewId;
 import com.aeroflot.webapp.models.personrelated.Crew;
 
+import javax.persistence.*;
 
 
+
+@Entity
+@Table(name = "flightcrew")
 public class FlightCrew {
 
+    @EmbeddedId
+    @AttributeOverrides(
+      {
+        @AttributeOverride(name = "flightId", column = @Column(name = "flight_id")),
+        @AttributeOverride(name = "crewId", column = @Column(name = "crew_id"))
+      }
+    )
+    private FlightCrewId mId;
+
+    @ManyToOne
+    @MapsId("flightId")
+    @JoinColumn(name = "flight_id")
     private Flight mFlight;
-    private Crew   mCrew;
+
+    @ManyToOne
+    @MapsId("crewId")
+    @JoinColumn(name = "crew_id")
+    private Crew mCrew;
 
 
 

@@ -15,7 +15,7 @@ public class Plane {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    protected long mId;
+    protected long id;
 
     @Column(name = "title")
     protected String mTitle;
@@ -49,14 +49,14 @@ public class Plane {
     // region getters/setters
     public long getId() {
 
-        return mId;
+        return id;
     }
 
 
 
     public void setId(long id) {
 
-        mId = id < 1 ? -1 : id;
+        this.id = id < 1 ? -1 : id;
     }
 
 
@@ -160,5 +160,13 @@ public class Plane {
         mSeatsCount = maxFlightDistance < 1 ? -1 : maxFlightDistance;
     }
     // endregion
+
+
+
+    @Override
+    public String toString() {
+
+        return "(" + mTitle + ") " + mModel;
+    }
 
 }

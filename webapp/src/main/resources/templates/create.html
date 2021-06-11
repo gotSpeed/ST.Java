@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" th:href="@{/shared.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/header.css}" />
+  <link rel="stylesheet" type="text/css" href="../static/shared.css" />
+  <link rel="stylesheet" type="text/css" href="../static/header.css" />
+  <title>Registering new flight</title>
+</head>
+
+<body>
+
+  <div class="horizontal-container">
+
+    <header>
+      <nav class="navbar">
+        <ul class="nav-list">
+
+          <li class="nav-link">
+            <a class="nav-link__text" href="/">Home</a>
+          </li>
+
+          <hr class="nav-list-delim" />
+
+          <li class="nav-link">
+            <a class="nav-link__text" href="#">Transport park</a>
+          </li>
+
+          <hr class="nav-list-delim" />
+
+          <li class="nav-link">
+            <a class="nav-link__text" href="#">Staff</a>
+          </li>
+
+        </ul>
+      </nav>
+    </header>
+
+    <div class="content-container">
+      <h1>Register new</h1>
+
+      <form class="new-flight-form" method="POST" th:action="@{/new-flight-registration}">
+        <label class="form-label">Departure date and time
+          <input type="text" name="departure_datetime" placeholder="yyyy-MM-dd hh:mm:ss">
+        </label>
+
+        <br>
+
+        <label class="form-label">Arrival date and time
+          <input type="text" name="arrival_datetime" placeholder="yyyy-MM-dd hh:mm:ss">
+        </label>
+
+        <br>
+
+        <label class="form-label">Departure point
+          <select name="departure_point">
+            <option th:each="country, _ : ${countries}"
+                    th:value="${country.getId()}"
+                    th:text="${country.getTitle()}"></option>
+          </select>
+        </label>
+
+        <br>
+
+        <label class="form-label">Arrival point
+          <select name="arrival_point">
+            <option th:each="country, _ : ${countries}"
+                    th:value="${country.getId()}"
+                    th:text="${country.getTitle()}"></option>
+          </select>
+        </label>
+
+        <br>
+
+        <label class="form-label">Plane
+          <select name="plane">
+            <option th:each="plane, _ : ${planes}"
+                    th:value="${plane.getId()}"
+                    th:text="${plane.toString()}"></option>
+          </select>
+        </label>
+
+        <br>
+
+        <label class="form-label">Departure point
+          <select name="personal" multiple>
+            <option th:each="crewmate, _ : ${crewmates}"
+                    th:value="${crewmate.getId()}"
+                    th:text="${crewmate.getPerson().getName() +
+                             ' ' +
+                             crewmate.getPerson().getSurname() +
+                             ' (' +
+                             crewmate.getPerson().getPosition().getTitle() +
+                             ')'}"></option>
+          </select>
+        </label>
+
+        <br>
+
+        <button class="default-btn" type="submit">Register</button>
+      </form>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
