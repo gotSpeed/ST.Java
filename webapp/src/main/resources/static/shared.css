@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+
+  color: #104d60;
+  font-size: 16px;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff4f4;
+}
+
+
+ul, form {
+  margin: 0;
+  padding: 0;
+}
+
+
+h1 {
+  margin: 0 auto 5vh;
+
+  font-size: 2rem;
+  text-align: center;
+}
+
+
+
+/* Containers */
+.horizontal-container {
+  margin: auto;
+  max-width: 75%;
+
+  background-color: #fff;
+}
+
+.content-container {
+  padding: 7vh 3.5vw 8vh;
+}
+
+
+
+/* Buttons */
+.default-btn {
+  display: inline;
+  padding: 3px 15px;
+
+  color: #fff;
+
+  background-color: #f45d6e;
+
+  border-radius: 5px;
+  border-top-color: #f45d6e;
+  border-left-color: #f45d6e;
+  border-bottom-color: #f24153;
+  border-right-color: #f24153;
+}

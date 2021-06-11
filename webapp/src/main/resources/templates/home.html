@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" th:href="@{/shared.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/header.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/home.css}" />
+  <title>Registered flights</title>
+</head>
+
+<body>
+
+  <div class="horizontal-container">
+
+    <header>
+      <nav class="navbar">
+        <ul class="nav-list">
+
+          <li class="nav-link">
+            <a class="nav-link__text" href="/">Home</a>
+          </li>
+
+          <hr class="nav-list-delim" />
+
+          <li class="nav-link">
+            <a class="nav-link__text" href="#">Transport park</a>
+          </li>
+
+          <br class="nav-list-delim" />
+
+          <li class="nav-link">
+            <a class="nav-link__text" href="#">Staff</a>
+          </li>
+
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content-container">
+      <h1>Registered flights</h1>
+
+      <button class="default-btn">New</button>
+
+      <ul class="content-list" th:each="flight, _ : ${allFlights}">
+
+        <li class="content-list__item">
+          <div class="item-id-block" th:text="${flight.getId()}"></div>
+
+          <div class="info-block__info"
+            th:text="${flight.getDeparturePoint().getTitle()} +
+                     ' — ' +
+                     ${flight.getArrivalPoint().getTitle()}">
+          </div>
+
+          <div class="info-block__info"
+            th:text="${flight.getDepartureDateTime()} + ' — ' + ${flight.getArrivalDateTime()}">
+          </div>
+
+          <div class="info-block__info"
+            th:text="${flight.getStatus()}">
+          </div>
+
+          <button class="default-btn">Edit</button>
+        </li>
+
+      </ul>
+
+      <!-- <nav class="pages-nav-bar">
+        <% if (currentPage - 1 >= 1) { %>
+        <a class="pages-nav-bar__link" href="${pageContext.request.contextPath}/home?page=<%= currentPage - 1 %>">
+          < Previous </a>
+            <% }
+            else { %>
+            <span class="pages-nav-bar__link link-inactive">
+              < Previous</span>
+                <% } %>
+
+                <span class="pages-nav-bar__page"><%= currentPage %></span>
+
+                <% if (currentPage + 1 <= pagesCount) { %>
+                <a class="pages-nav-bar__link" href="${pageContext.request.contextPath}/home?page=<%= currentPage + 1 %>">Next >
+                </a>
+                <% }
+            else { %>
+                <span class="pages-nav-bar__link link-inactive">Next ></span>
+                <% } %>
+      </nav> -->
+    </main> <!-- content-container -->
+
+  </div>
+
+</body>
+
+</html>
