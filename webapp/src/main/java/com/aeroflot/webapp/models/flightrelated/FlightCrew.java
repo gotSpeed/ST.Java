@@ -44,6 +44,8 @@ public class FlightCrew {
 
         mFlight = flight;
         mCrew   = crew;
+
+        mId = new FlightCrewId(flight.getId(), crew.getId());
     }
 
 

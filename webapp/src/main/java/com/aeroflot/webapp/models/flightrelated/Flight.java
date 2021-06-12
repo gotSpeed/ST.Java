@@ -4,6 +4,7 @@ package com.aeroflot.webapp.models.flightrelated;
 import com.aeroflot.webapp.models.countryrelated.Country;
 import com.aeroflot.webapp.models.personrelated.User;
 import com.aeroflot.webapp.models.transportrelated.Plane;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,7 +18,7 @@ import static com.aeroflot.webapp.misc.ModelsContext.TIMESTAMP_FORMATTER;
 public class Flight implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     protected long id;
 
@@ -35,7 +36,8 @@ public class Flight implements Serializable {
     @Column(name = "status")
     protected String mStatus;
 
-    @Column(name = "when_registered")
+    @Column(name = "when_registered", nullable = false, updatable = false, insertable = false)
+    @CreationTimestamp
     protected LocalDateTime mWhenRegisteredDateTime;
 
     @Column(name = "departure_datetime")

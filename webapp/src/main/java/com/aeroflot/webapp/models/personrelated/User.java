@@ -11,7 +11,7 @@ public class User {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    protected long mId;
+    protected long id;
 
     @Column(name = "username")
     protected String mUsername;
@@ -31,14 +31,14 @@ public class User {
     // region getters/setters
     public long getId() {
 
-        return mId;
+        return id;
     }
 
 
 
     public void setId(long id) {
 
-        mId = id < 1 ? -1 : id;
+        this.id = id < 1 ? -1 : id;
     }
 
 
@@ -80,7 +80,7 @@ public class User {
 
     public void setPerson(Person person) {
 
-        mPerson = person;
+        this.mPerson = person;
     }
     // endregion
 

@@ -85,7 +85,7 @@
         <br>
 
         <label class="form-label">Departure point
-          <select name="personal" multiple>
+          <select name="crewmates" multiple>
             <option th:each="crewmate, _ : ${crewmates}"
                     th:value="${crewmate.getId()}"
                     th:text="${crewmate.getPerson().getName() +

@@ -1,7 +1,6 @@
 package com.aeroflot.webapp.models.flightrelated.embedded;
 
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 
@@ -10,35 +9,49 @@ import java.io.Serializable;
 @Embeddable
 public class FlightCrewId implements Serializable {
 
-    private long mFlightId;
-    private long mCrewId;
+    private long flightId;
+    private long crewId;
+
+
+
+    public FlightCrewId() {
+
+    }
+
+
+
+    public FlightCrewId(long flightId, long crewId) {
+
+        this.flightId = flightId;
+        this.crewId   = crewId;
+    }
 
 
 
     public long getFlightId() {
 
-        return mFlightId;
+        return flightId;
     }
 
 
 
     public void setFlightId(long flightId) {
 
-        mFlightId = flightId;
+        this.flightId = flightId;
     }
 
 
 
     public long getCrewId() {
 
-        return mCrewId;
+        return crewId;
     }
 
 
 
     public void setCrewId(long crewId) {
 
-        mCrewId = crewId;
+        this.crewId = crewId;
     }
 
 }

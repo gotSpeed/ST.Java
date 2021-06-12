@@ -13,20 +13,13 @@ public class Country {
 
     @GeneratedValue
     @Column(name = "id")
-    protected short id;
+    protected short id = 0;
 
     @Column(name = "title")
     protected String mTitle;
 
     @Column(name = "country_code")
     protected String mCountryCode;
-
-
-    public Country() {}
-
-    public Country(final short id) {
-        this.id = id;
-    }
 
 
 
