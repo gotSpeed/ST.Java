@@ -1,25 +1,40 @@
 package com.aeroflot.webapp.models.personrelated;
 
 
+import javax.persistence.*;
+
+
+
+@Entity
 public class Session {
 
-    private String mId = "";
-    private User   mUser;
-    private long   mExpiresAt;
+    @Id
+    @Column(name = "id")
+    private String id = "";
+
+    @ManyToOne
+    @JoinColumn(
+      name = "user_id",
+      referencedColumnName = "id"
+    )
+    private User mUser;
+
+    @Column(name = "expires_at")
+    private long mExpiresAt;
 
 
 
     // region getters/setters
     public String getId() {
 
-        return mId;
+        return id;
     }
 
 
 
     public void setId(String id) {
 
-        mId = id;
+        this.id = id;
     }
 
 

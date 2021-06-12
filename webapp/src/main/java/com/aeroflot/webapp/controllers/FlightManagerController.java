@@ -7,6 +7,7 @@ import com.aeroflot.webapp.models.flightrelated.FlightCrew;
 import com.aeroflot.webapp.models.personrelated.Crew;
 import com.aeroflot.webapp.models.transportrelated.Plane;
 import com.aeroflot.webapp.repositories.*;
+import com.aeroflot.webapp.services.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -39,26 +41,34 @@ public class FlightManagerController {
     @Autowired
     private IUserRepository       mUserRepository;
 
+    @Autowired
+    private Authentication mAuthentication;
+
 
 
     @GetMapping("/new-flight-registration")
-    public String newFlight(Model model) {
+    public String newFlight(Model model, HttpSession httpSession) {
 
-        Iterable<Country> countries = mCountryRepository.findAll(
-          Sort.by(Sort.Direction.ASC, "id")
-        );
+        if (mAuthentication.checkIfAuthenticated(httpSession) != null) {
+            Iterable<Country> countries = mCountryRepository.findAll(
+              Sort.by(Sort.Direction.ASC, "id")
+            );
 
-        Iterable<Plane> planes = mPlaneRepository.findAll(
-          Sort.by(Sort.Order.asc("id"))
-        );
+            Iterable<Plane> planes = mPlaneRepository.findAll(
+              Sort.by(Sort.Order.asc("id"))
+            );
 
-        Iterable<Crew> crewmates = mCrewRepository.findAllByOrderByName();
+            Iterable<Crew> crewmates = mCrewRepository.findAllByOrderByName();
 
-        model.addAttribute("countries", countries)
-             .addAttribute("planes", planes)
-             .addAttribute("crewmates", crewmates);
+            model.addAttribute("countries", countries)
+                 .addAttribute("planes", planes)
+                 .addAttribute("crewmates", crewmates);
 
-        return "create";
+            return "create";
+        }
+        else {
+            return "redirect:/auth/sign-in";
+        }
     }
 
 

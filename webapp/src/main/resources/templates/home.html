@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" th:href="@{/shared.css}" />
-  <link rel="stylesheet" type="text/css" th:href="@{/header.css}" />
-  <link rel="stylesheet" type="text/css" th:href="@{/home.css}" />
-  <link rel="stylesheet" type="text/css" href="../static/shared.css"/>
-  <link rel="stylesheet" type="text/css" href="../static/header.css"/>
-  <link rel="stylesheet" type="text/css" href="../static/home.css"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/shared.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+  <link rel="stylesheet" type="text/css" href="../static/css/shared.css"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/header.css"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/home.css"/>
   <title>Registered flights</title>
 </head>
 
@@ -43,9 +43,9 @@
     <main class="content-container">
       <h1>Registered flights</h1>
 
-      <button class="default-btn">New</button>
+      <button id="new-btn" class="default-btn">New</button>
 
-      <ul class="content-list">
+      <ul id="flights-list" class="content-list">
 
         <li th:each="flight, _ : ${allFlights}" class="content-list__item">
           <div class="item-id-block" th:text="${flight.getId()}"></div>
@@ -89,10 +89,11 @@
                 <span class="pages-nav-bar__link link-inactive">Next ></span>
                 <% } %>
       </nav> -->
-    </main> <!-- content-container -->
+    </main>
 
   </div>
 
+  <script th:src="@{/js/home/initial.js}"></script>
 </body>
 
 </html>
