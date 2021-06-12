@@ -1,46 +1,35 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 11
-  Date: 20.03.2021
-  Time: 21:39
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="core.models.flightrelated.Flight" %>
-<%@ page import="core.models.countries.Country" %>
-<%@ page import="java.util.List" %>
-
-<%
-  Flight flight = (Flight) request.getAttribute("flight");
-  List<Country> countries = (List<Country>) request.getAttribute("countries");
-%>
-
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/home.css" />
-    <title>Editing #<%= flight.getId() %></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/shared.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}" />
+    <title th:text="'Editing #' + ${flight.getId()}"></title>
   </head>
 
   <body>
 
-    <div class="body-container">
+    <div class="horizontal-container">
 
       <header>
-        <nav class="navigation">
-          <ul class="navigation__linklist">
+        <nav class="navbar">
+          <ul class="nav-list">
 
-            <li class="linklist__link">
-              <a class="link__text" href="/home">Home</a>
+            <li class="nav-link">
+              <a class="nav-link__text" href="/">Home</a>
             </li>
-            <li class="linklist__delimiter"></li>
-            <li class="linklist__link">
-              <a class="link__text" href="/transport">Transport park</a>
+
+            <hr class="nav-list-delim" />
+
+            <li class="nav-link">
+              <a class="nav-link__text" href="#">Transport park</a>
             </li>
-            <li class="linklist__delimiter"></li>
-            <li class="linklist__link">
-              <a class="link__text" href="/staff">Staff</a>
+
+            <hr class="nav-list-delim" />
+
+            <li class="nav-link">
+              <a class="nav-link__text" href="#">Staff</a>
             </li>
 
           </ul>
@@ -48,19 +37,16 @@
       </header>
 
       <div class="content-container">
-        <h1>Editing flight #<%= flight.getId() %></h1>
+        <h1 th:text="'Editing flight #' + ${flight.getId()}"></h1>
 
-        <form class="edit-flight-form" method="POST" action="/edit">
+        <form class="edit-flight-form" method="POST" th:action="@{/flight-edit/__${flight.getId()}__}">
           <label class="edit-form-label">Arrival point
             <select name="arrival_point">
-              <% for (Country item : countries) {
-                if (item.getId() != flight.getArrivalPoint().getId()) { %>
-              <option value="<%= item.getId() %>"><%= item.getTitle() %></option>
-              <% }
-              else { %>
-              <option value="<%= item.getId() %>" selected><%= item.getTitle() %></option>
-              <% }
-              } %>
+              <option th:each="country, _ : ${countries}"
+                      th:value="${country.getId()}"
+                      th:text="${country.getTitle()} + ' (' + ${country.getCountryCode() + ')'}"
+                      th:attr="selected=${country.getId() == flight.getArrivalPoint().getId()}">
+              </option>
             </select>
           </label>
 
@@ -69,16 +55,18 @@
           <label class="edit-form-label">Arrival time
             <input type="text"
                    name="arrival_datetime"
-                   value="<%= flight.getArrivalDateTime() %>">
+                   th:value="${flight.getArrivalDateTime()}">
           </label>
 
           <br>
 
           <label class="edit-form-label">Status
-            <input type="text" name="status" value="<%= flight.getStatus() %>">
+            <input type="text"
+                   name="status"
+                   th:value="${flight.getStatus()}">
           </label>
 
-          <input type="submit" name="submit" value="Save">
+          <input class="default-btn" type="submit" name="submit" value="Save">
         </form>
 
       </div>

@@ -5,6 +5,7 @@ import com.aeroflot.webapp.models.countryrelated.Country;
 import com.aeroflot.webapp.models.flightrelated.Flight;
 import com.aeroflot.webapp.models.flightrelated.FlightCrew;
 import com.aeroflot.webapp.models.personrelated.Crew;
+import com.aeroflot.webapp.models.personrelated.User;
 import com.aeroflot.webapp.models.transportrelated.Plane;
 import com.aeroflot.webapp.repositories.*;
 import com.aeroflot.webapp.services.Authentication;
@@ -13,6 +14,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,8 +40,6 @@ public class FlightManagerController {
     private ICrewRepository       mCrewRepository;
     @Autowired
     private IFlightCrewRepository mFlightCrewRepository;
-    @Autowired
-    private IUserRepository       mUserRepository;
 
     @Autowired
     private Authentication mAuthentication;
@@ -73,13 +73,32 @@ public class FlightManagerController {
 
 
 
+    @GetMapping("/flight-edit/{id}")
+    public String editFlight(
+      @PathVariable("id") String flightId,
+      Model model
+    ) {
+
+        Flight editable = mFlightRepository.getById(
+          Long.parseLong(flightId)
+        );
+
+        model.addAttribute("flight", editable)
+             .addAttribute("countries", mCountryRepository.findAll());
+
+        return "edit";
+    }
+
+
+
     @PostMapping("/new-flight-registration")
     public ModelAndView registerNewFlight(
       @RequestParam Map<String, String> requestParams,
-      @RequestParam(value = "crewmates", required = false) Long[] crewmates
+      @RequestParam(value = "crewmates", required = false) Long[] crewmates,
+      HttpSession httpSession
     ) {
 
-        Flight           newFlight      = mapFlight(requestParams);
+        Flight           newFlight      = mapFlight(requestParams, httpSession);
         List<Crew>       crewList       = mapCrew(crewmates);
         List<FlightCrew> flightCrewList = mapFlightCrew(newFlight, crewList);
 
@@ -91,9 +110,36 @@ public class FlightManagerController {
 
 
 
-    private Flight mapFlight(Map<String, String> params) {
+    @PostMapping("/flight-edit/{id}")
+    public String performFlightEdit(
+      @PathVariable("id") String flightId,
+      @RequestParam Map<String, String> params
+    ) {
 
-        Flight flight = new Flight();
+        Flight editable = mFlightRepository.getById(
+          Long.parseLong(flightId)
+        );
+
+        editable.setStatus(params.get("status"));
+        // TODO: Fix parsing error.
+        //        editable.setArrivalDateTime(params.get("arrival_datetime"));
+        editable.setArrivalPoint(
+          mCountryRepository.getById(
+            Short.parseShort(params.get("arrival_point"))
+          )
+        );
+
+        mFlightRepository.save(editable);
+
+        return "redirect:/";
+    }
+
+
+
+    private Flight mapFlight(Map<String, String> params, HttpSession httpSession) {
+
+        Flight flight      = new Flight();
+        User   currentuser = mAuthentication.checkIfAuthenticated(httpSession);
 
         flight.setDeparturePoint(
           mCountryRepository.getById(
@@ -112,10 +158,7 @@ public class FlightManagerController {
             Long.parseLong(params.get("plane"))
           )
         );
-        // TODO: replace 1L.
-        flight.setAdministrator(
-          mUserRepository.getById(1L)
-        );
+        flight.setAdministrator(currentuser);
         flight.setStatus("Scheduled");
 
         return flight;
