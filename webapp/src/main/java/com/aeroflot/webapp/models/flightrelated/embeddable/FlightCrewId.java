@@ -1,4 +1,4 @@
-package com.aeroflot.webapp.models.flightrelated.embedded;
+package com.aeroflot.webapp.models.flightrelated.embeddable;
 
 
 import javax.persistence.Embeddable;

@@ -17,7 +17,7 @@ import java.util.stream.StreamSupport;
 
 public interface ICrewRepository extends CrudRepository<Crew, Long> {
 
-    default Iterable<Crew> findAllByOrderByName() {
+    default Collection<Crew> findAllByOrderByName() {
 
         Spliterator<Crew> spliterator = findAll().spliterator();
         Stream<Crew>      stream      = StreamSupport.stream(spliterator, false);

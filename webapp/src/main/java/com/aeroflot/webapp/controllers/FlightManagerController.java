@@ -20,10 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 
 
@@ -47,18 +44,18 @@ public class FlightManagerController {
 
 
     @GetMapping("/new-flight-registration")
-    public String newFlight(Model model, HttpSession httpSession) {
+    public String newFlight(HttpSession httpSession, Model model) {
 
         if (mAuthentication.checkIfAuthenticated(httpSession) != null) {
-            Iterable<Country> countries = mCountryRepository.findAll(
+            Collection<Country> countries = mCountryRepository.findAll(
               Sort.by(Sort.Direction.ASC, "id")
             );
 
-            Iterable<Plane> planes = mPlaneRepository.findAll(
+            Collection<Plane> planes = mPlaneRepository.findAll(
               Sort.by(Sort.Order.asc("id"))
             );
 
-            Iterable<Crew> crewmates = mCrewRepository.findAllByOrderByName();
+            Collection<Crew> crewmates = mCrewRepository.findAllByOrderByName();
 
             model.addAttribute("countries", countries)
                  .addAttribute("planes", planes)
@@ -76,17 +73,23 @@ public class FlightManagerController {
     @GetMapping("/flight-edit/{id}")
     public String editFlight(
       @PathVariable("id") String flightId,
+      HttpSession httpSession,
       Model model
     ) {
 
-        Flight editable = mFlightRepository.getById(
-          Long.parseLong(flightId)
-        );
+        if (mAuthentication.checkIfAuthenticated(httpSession) != null) {
+            Flight editable = mFlightRepository.getById(
+              Long.parseLong(flightId)
+            );
 
-        model.addAttribute("flight", editable)
-             .addAttribute("countries", mCountryRepository.findAll());
+            model.addAttribute("flight", editable)
+                 .addAttribute("countries", mCountryRepository.findAll());
 
-        return "edit";
+            return "edit";
+        }
+        else {
+            return "redirect:/auth/sign-in";
+        }
     }
 
 

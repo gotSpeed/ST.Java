@@ -69,31 +69,17 @@
 
       </ul>
 
-      <!-- <nav class="pages-nav-bar">
-        <% if (currentPage - 1 >= 1) { %>
-        <a class="pages-nav-bar__link" href="${pageContext.request.contextPath}/home?page=<%= currentPage - 1 %>">
-          < Previous </a>
-            <% }
-            else { %>
-            <span class="pages-nav-bar__link link-inactive">
-              < Previous</span>
-                <% } %>
-
-                <span class="pages-nav-bar__page"><%= currentPage %></span>
-
-                <% if (currentPage + 1 <= pagesCount) { %>
-                <a class="pages-nav-bar__link" href="${pageContext.request.contextPath}/home?page=<%= currentPage + 1 %>">Next >
-                </a>
-                <% }
-            else { %>
-                <span class="pages-nav-bar__link link-inactive">Next ></span>
-                <% } %>
-      </nav> -->
+      <nav id="pages-nav-bar" class="pages-nav-bar" th:total-pages="${totalPages}">
+        <button id="prev-btn" class="pages-nav-bar__btn">< Previous</button>
+        <span id="current-page" class="pages-nav-bar__page">12</span>
+        <button id="next-btn" class="pages-nav-bar__btn">Next ></button>
+      </nav>
     </main>
 
   </div>
 
   <script th:src="@{/js/home/initial.js}"></script>
+  <script th:src="@{/js/home/pagination.js}"></script>
 </body>
 
 </html>

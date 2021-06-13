@@ -2,7 +2,7 @@ package com.aeroflot.webapp.models.flightrelated;
 
 
 
-import com.aeroflot.webapp.models.flightrelated.embedded.FlightCrewId;
+import com.aeroflot.webapp.models.flightrelated.embeddable.FlightCrewId;
 import com.aeroflot.webapp.models.personrelated.Crew;
 
 import javax.persistence.*;

@@ -6,7 +6,7 @@
 
     newBtn.addEventListener(
         'click',
-        (event) => location.assign('new-flight-registration')
+        () => location.assign('new-flight-registration')
     );
 
 
@@ -15,9 +15,8 @@
         let editBtn = li.getElementsByTagName('button')[0];
         let editableId = li.getElementsByClassName('item-id-block')[0].textContent;
 
-        editBtn.addEventListener(
-            'click',
-            (event) => location.assign('flight-edit/' + editableId)
-        );
+        editBtn.onclick = function () {
+            location.assign('flight-edit/' + editableId)
+        };
     }
 })();
