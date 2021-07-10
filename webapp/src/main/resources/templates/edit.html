@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/shared.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}" />
+    <title th:text="'Editing #' + ${flight.getId()}"></title>
+  </head>
+
+  <body>
+
+    <div class="horizontal-container">
+
+      <header>
+        <nav class="navbar">
+          <ul class="nav-list">
+
+            <li class="nav-link">
+              <a class="nav-link__text" href="/">Home</a>
+            </li>
+
+            <hr class="nav-list-delim" />
+
+            <li class="nav-link">
+              <a class="nav-link__text" href="#">Transport park</a>
+            </li>
+
+            <hr class="nav-list-delim" />
+
+            <li class="nav-link">
+              <a class="nav-link__text" href="#">Staff</a>
+            </li>
+
+          </ul>
+        </nav>
+      </header>
+
+      <div class="content-container">
+        <h1 th:text="'Editing flight #' + ${flight.getId()}"></h1>
+
+        <form class="edit-flight-form" method="POST" th:action="@{/flight-edit/__${flight.getId()}__}">
+          <label class="edit-form-label">Arrival point
+            <select name="arrival_point">
+              <option th:each="country, _ : ${countries}"
+                      th:value="${country.getId()}"
+                      th:text="${country.getTitle()} + ' (' + ${country.getCountryCode() + ')'}"
+                      th:attr="selected=${country.getId() == flight.getArrivalPoint().getId()}">
+              </option>
+            </select>
+          </label>
+
+          <br>
+
+          <label class="edit-form-label">Arrival time
+            <input type="text"
+                   name="arrival_datetime"
+                   th:value="${flight.getArrivalDateTime()}">
+          </label>
+
+          <br>
+
+          <label class="edit-form-label">Status
+            <input type="text"
+                   name="status"
+                   th:value="${flight.getStatus()}">
+          </label>
+
+          <input class="default-btn" type="submit" name="submit" value="Save">
+        </form>
+
+      </div>
+
+    </div>
+
+  </body>
+
+</html>

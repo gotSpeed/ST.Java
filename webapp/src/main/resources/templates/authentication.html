@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/shared.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}" />
+    <title>Authenticate</title>
+  </head>
+
+  <body>
+
+    <div class="horizontal-container">
+
+      <div class="content-container">
+        <h1>Sign in</h1>
+
+        <form class="sign-in-form" method="POST" th:action="@{/auth/sign-in}">
+          <label class="form-label">Username
+            <input type="text" name="username" placeholder="Username">
+          </label>
+
+          <br>
+
+          <label class="form-label">Password
+            <input type="password" name="password" placeholder="Password">
+          </label>
+
+          <br>
+
+          <input class="default-btn" type="submit" value="Sign in">
+        </form>
+      </div>
+
+    </div>
+
+  </body>
+
+</html>

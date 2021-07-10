@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/shared.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+  <link rel="stylesheet" type="text/css" href="../static/css/shared.css"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/header.css"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/home.css"/>
+  <title>Registered flights</title>
+</head>
+
+<body>
+
+  <div class="horizontal-container">
+
+    <header>
+      <nav class="navbar">
+        <ul class="nav-list">
+
+          <li class="nav-link">
+            <a class="nav-link__text" href="/">Home</a>
+          </li>
+
+          <hr class="nav-list-delim" />
+
+          <li class="nav-link">
+            <a class="nav-link__text" href="#">Transport park</a>
+          </li>
+
+          <hr class="nav-list-delim" />
+
+          <li class="nav-link">
+            <a class="nav-link__text" href="#">Staff</a>
+          </li>
+
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content-container">
+      <h1>Registered flights</h1>
+
+      <button id="new-btn" class="default-btn">New</button>
+
+      <ul id="flights-list" class="content-list">
+
+        <li th:each="flight, _ : ${allFlights}" class="content-list__item">
+          <div class="item-id-block" th:text="${flight.getId()}"></div>
+
+          <div class="info-block__info"
+            th:text="${flight.getDeparturePoint().getTitle()} +
+                     ' — ' +
+                     ${flight.getArrivalPoint().getTitle()}">
+          </div>
+
+          <div class="info-block__info"
+            th:text="${flight.getDepartureDateTime()} + ' — ' + ${flight.getArrivalDateTime()}">
+          </div>
+
+          <div class="info-block__info"
+            th:text="${flight.getStatus()}">
+          </div>
+
+          <button class="default-btn">Edit</button>
+        </li>
+
+      </ul>
+
+      <nav id="pages-nav-bar" class="pages-nav-bar" th:total-pages="${totalPages}">
+        <button id="prev-btn" class="pages-nav-bar__btn">< Previous</button>
+        <span id="current-page" class="pages-nav-bar__page">12</span>
+        <button id="next-btn" class="pages-nav-bar__btn">Next ></button>
+      </nav>
+    </main>
+
+  </div>
+
+  <script th:src="@{/js/home/initial.js}"></script>
+  <script th:src="@{/js/home/pagination.js}"></script>
+</body>
+
+</html>
